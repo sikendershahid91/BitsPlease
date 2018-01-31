@@ -1,2 +1,2 @@
 # adduh
-hardware design projects and labs performed
+hardware design projects and labs 
