@@ -1,0 +1,9 @@
+# files to be ignored simulation
+**/work/
+**/*.mpf
+**/*.ini
+
+**\work\
+**\*.mpf
+**\*.ini 
+
