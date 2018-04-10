@@ -2,8 +2,10 @@
 **/work/
 **/*.mpf
 **/*.ini
+**/*.mti
 
 **\work\
 **\*.mpf
-**\*.ini 
+**\*.ini
+**\*.mti 
 
