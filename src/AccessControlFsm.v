@@ -5,10 +5,11 @@ module AccessControlFsm(
 	input [15:0] _Data_In, 
 	input [0:0]  _Data_In_Load,
 	input [15:0] _Memory_Data_In, 
-	input [1:0]  _Request; // stall 11 / change password 01 / access password 00     
-	output[0:0]  Access_Grant,
-	output[15:0] Address, 
-	output[0:0]  wren);
+	input [1:0]  _Request, // stall 11 / change password 01 / access password 00     
+	output reg [0:0]  Access_Grant,
+	output reg [15:0] Address, 
+	output reg [0:0]  wren,
+	output reg [15:0] Data_Out);
 
 	reg [0:0] Invalid_Input_Flag;
 	reg [0:0] Password_Change_Flag; 
@@ -38,11 +39,11 @@ module AccessControlFsm(
 		else begin
 			case(State)
 				INIT: begin
-					Invalid_Input_Flag = 0; 
-					Password_Change_Flag = 0; 
-					Access_Grant = 0; 
-					Address = 0; 
-					wren = 0; 
+					Invalid_Input_Flag <= 0; 
+					Password_Change_Flag <= 0; 
+					Access_Grant <= 0; 
+					Address <= 0; 
+					wren <= 0; 
 					State <= REQUEST; 	
 				end
 				REQUEST: begin
@@ -74,6 +75,7 @@ module AccessControlFsm(
 					Password_User_Reg <= _Data_In; 
 					Password_Memory_Reg <= _Memory_Data_In;				
 					if(Password_Change_Flag == 1) begin
+						wren <=1; 
 						State <= CHANGE; 
 					end else begin
 						State <= CHECK; 
@@ -106,8 +108,10 @@ module AccessControlFsm(
 					end
 				end
 				CHANGE: begin
+					Data_Out <= Password_User_Reg; 
+					wren <= 0; 
+					Password_Change_Flag <= 0; 
 					// note: toggle flag after changing password 
-
 				end
 			endcase
 		end

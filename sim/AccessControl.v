@@ -5,4 +5,10 @@
 // the comparator performs operation on 4bit values 
 // with 4 entries in the ROM
 
+module AccessControl(
 
+	); 
+// notes
+// if access grant -0 than led redd 
+
+endmodule 
