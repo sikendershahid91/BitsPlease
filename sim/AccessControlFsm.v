@@ -42,12 +42,12 @@ module AccessControlFsm(
 					Invalid_Input_Flag <= 0; 
 					Password_Change_Flag <= 0; 
 					Access_Grant <= 0; 
-					Address <= 0; 
+					// Address <= 0; 
 					wren <= 0; 
 					State <= REQUEST; 	
 				end
 				REQUEST: begin
-					if (_Request == 2'b11)begin
+					if (_Request[1] !== 1'b0)begin
 						State <= REQUEST; 
 					end else begin
 						State <= ENTER; 
@@ -84,13 +84,14 @@ module AccessControlFsm(
 				CHECK: begin
 					Invalid_Input_Flag <= (Password_User_Reg ^ Password_Memory_Reg)? 1:0; 
 					Password_Change_Flag <=(_Request[0] == 1)? 1:0; 
+					State <= ACCESS; 
 				end
 				ACCESS: begin
-					if (Invalid_Input_Flag == 1 && Fail_Count != 2'd3) begin 
+					if (Invalid_Input_Flag == 1 && Fail_Count !== 2'd3) begin 
 						Invalid_Input_Flag <=0; 
 						Fail_Count <= Fail_Count + 1'b1; 
 						State <= ENTER;
-					end else if (Invalid_Input_Flag == 1 && Fail_Count == 2'd3) begin
+					end else if (Invalid_Input_Flag == 1 && Fail_Count === 2'd3) begin
 						State <= GRANT; 
 					end else if (Password_Change_Flag == 1) begin
 						State <= DELAY1; 
