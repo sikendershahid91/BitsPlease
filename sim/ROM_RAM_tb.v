@@ -31,7 +31,7 @@ module TEST_password_match_in_RAM_ROM();
 	end
 endmodule 
 
-module TEST_password_for_1476();
+module TEST_password_for_USID();
 	reg [15:0] Address; 
 	reg clk; 
 	wire [15:0] Data_ROM_2;  
@@ -45,17 +45,23 @@ module TEST_password_for_1476();
 		#10 clk = ~clk; 
 	end
 
-	always begin
-		#10 @(posedge clk) Address = Address ;  
-	end
-
 	initial begin 
-		clk  = 1; Address = 16'h1476; 
+		$monitor("time:[%6t us], Address:[%h], Data_In:[%h]",
+			$time,
+			ROM._Address, 
+			ROM._Data);  
+
+		clk  = 1; 
+		Address = 0; 
+		#40 @(posedge clk) Address = 16'h1476; 
+		#40 @(posedge clk) Address = 16'h6435;
+		#40 @(posedge clk) Address = 16'h5095;
+
 	end
 endmodule
 
 module ROM_RAM_tb(); 
 	TEST_password_match_in_RAM_ROM test();
-	TEST_password_for_1476 test2(); 
+	TEST_password_for_USID test2(); 
 
 endmodule

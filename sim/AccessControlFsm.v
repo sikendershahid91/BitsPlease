@@ -1,6 +1,6 @@
 
 
-module AccessControlFsm2(
+module AccessControlFsm(
 	input [0:0] clk, 
 	input [0:0] rst, 
 	input [16:0] _Data_In, 
