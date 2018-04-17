@@ -26,17 +26,23 @@ module TEST_State_transitions();
 	end
 
 	always @ (fsm1.State) begin
-		$display("Current State : %d", fsm1.State); 
+		$display("Current State : %d , Access : %b", fsm1.State, _Access_Grant); 
 	end
 
 	initial begin
 		clk = 1; 
 		rst = 0; 
+		Request = 2'b00; 
 		#10 @(posedge clk) rst =1; 
+		#10 @(posedge clk) Data_In_Load = 1; Data_In = 16'h1476;
+		#10 @(posedge clk) Data_In_Load = 0; 
+		#10 @(posedge clk) Memory_Data_In = 16'h4789;
+		#30 @(posedge clk) Data_In_Load = 1; Data_In = 16'h4789;
+		// # @(posedge clk) Data_In_Load = 0; 
 	end
 endmodule
 
 
-module AccessControlFsm_TEST_BENCH(); 
+module AccessControlFsm_tb(); 
 	TEST_State_transitions test1(); 
 endmodule 

@@ -54,7 +54,7 @@ module TEST_password_for_1476();
 	end
 endmodule
 
-module ROM_RAM_TEST_BENCH(); 
+module ROM_RAM_tb(); 
 	TEST_password_match_in_RAM_ROM test();
 	TEST_password_for_1476 test2(); 
 

@@ -1,0 +1,420 @@
+# reading modelsim.ini
+# Loading project BitsPlease
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim work.AccessControlFsm_TEST_BENCH -Lf altera_mf_ver
+# vsim work.AccessControlFsm_TEST_BENCH -Lf altera_mf_ver 
+# Start time: 17:05:09 on Apr 12,2018
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+add wave -position insertpoint sim:/AccessControlFsm_TEST_BENCH/test1/*
+run 200ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Current State :  2 , Access : 0
+# Current State :  3 , Access : 0
+# Current State :  4 , Access : 0
+# Current State :  5 , Access : 0
+# Current State :  6 , Access : 0
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+run 400ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Current State :  2 , Access : 0
+# Current State :  3 , Access : 0
+# Current State :  4 , Access : 0
+# Current State :  5 , Access : 0
+# Current State :  6 , Access : 0
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+run 400ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+run 400ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Current State :  2 , Access : 0
+# Current State :  3 , Access : 0
+# Current State :  4 , Access : 0
+# Current State :  5 , Access : 0
+# Current State :  6 , Access : 0
+# Current State :  8 , Access : 0
+# Current State :  9 , Access : 0
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+restart -f 
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+run 400ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Current State :  2 , Access : 0
+# Current State :  3 , Access : 0
+# Current State :  4 , Access : 0
+run 400ns
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# 6 compiles, 0 failed with no errors.
+# Load canceled
+restart -f
+# Loading work.AccessControlFsm_TEST_BENCH
+# Loading work.TEST_State_transitions
+# Loading work.AccessControlFsm
+run 400ns
+# Current State :  0 , Access : x
+# Current State :  1 , Access : 0
+# Current State :  2 , Access : 0
+# Current State :  3 , Access : 0
+# Current State :  4 , Access : 0
+# Current State :  5 , Access : 0
+# Current State :  6 , Access : 0
+# Current State :  8 , Access : 0
+# Current State :  9 , Access : 0
+run 400ns
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH
+# End time: 17:37:11 on Apr 12,2018, Elapsed time: 0:32:02
+# Errors: 1, Warnings: 0
+# vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH 
+# Start time: 17:37:11 on Apr 12,2018
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading altera_mf_ver.altsyncram
+# ** Error (suppressible): (vsim-3009) [TSCALE] - Module 'AccessControl_TEST_BENCH' does not have a timeunit/timeprecision specification in effect, but other modules do.
+#    Time: 0 ps  Iteration: 0  Instance: /AccessControl_TEST_BENCH/AC/ROM/altsyncram_component File: /build/swbuild/SJ/nightly/17.1std/590/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+# Error loading design
+# End time: 17:37:12 on Apr 12,2018, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH
+# vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH 
+# Start time: 17:37:58 on Apr 12,2018
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading altera_mf_ver.altsyncram
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3008) /home/pintobean/Dropbox/AdvanceDigitalDesign/BitsPlease/sim/AccessControl_TEST_BENCH.v(36): [CNNODP] - Component name (Memory_Data_wire) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /AccessControl_TEST_BENCH File: /home/pintobean/Dropbox/AdvanceDigitalDesign/BitsPlease/sim/AccessControl_TEST_BENCH.v
+# ** Error: (vsim-3043) /home/pintobean/Dropbox/AdvanceDigitalDesign/BitsPlease/sim/AccessControl_TEST_BENCH.v(36): Unresolved reference to 'Memory_Data_wire' in AC.Memory_Data_wire.
+#    Time: 0 ps  Iteration: 0  Instance: /AccessControl_TEST_BENCH File: /home/pintobean/Dropbox/AdvanceDigitalDesign/BitsPlease/sim/AccessControl_TEST_BENCH.v
+# Error loading design
+# End time: 17:37:59 on Apr 12,2018, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH
+# vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH 
+# Start time: 17:41:19 on Apr 12,2018
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading altera_mf_ver.altsyncram
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+add wave -position insertpoint sim:/AccessControl_TEST_BENCH/AC/*
+add wave -position insertpoint sim:/AccessControl_TEST_BENCH/AC/FSM/*
+# Can't move the Now cursor.
+run 400ns
+# UserLoadValue:[4789] , Status_Frame:[6]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Load canceled
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 400ns
+# UserLoadValue:[4789] , Status_Frame:[6]
+run 400ns
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Load canceled
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+1000ns
+# invalid command name "1000ns"
+run 700ns
+# UserLoadValue:[2456] , Status_Frame:[6]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH
+# End time: 18:21:41 on Apr 12,2018, Elapsed time: 0:40:22
+# Errors: 4, Warnings: 0
+# vsim -Lf altera_mf_ver work.AccessControl_TEST_BENCH 
+# Start time: 18:21:41 on Apr 12,2018
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading altera_mf_ver.altsyncram
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+add wave -position insertpoint sim:/AccessControl_TEST_BENCH/*
+add wave -position insertpoint sim:/AccessControl_TEST_BENCH/AC/*
+run 500ns
+# UserLoadValue:[2456] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[2456] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[1476] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[1476] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Load canceled
+restart =f
+restart =f
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[2456] , Status_Frame:[110]
+# UserLoadValue:[2456] , Status_Frame:[111]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+run 500ns
+run 500ns
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+run 500ns
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[xxxx] , Status_Frame:[11x]
+# UserLoadValue:[1476] , Status_Frame:[110]
+# UserLoadValue:[2456] , Status_Frame:[110]
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+# UserLoadValue:[1476] , Status_Frame:[110]
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+# Compile of AccessControl.v was successful.
+# Compile of AccessControlFsm.v was successful.
+# Compile of RAMPassword.v was successful.
+# Compile of ROM_RAM_TEST_BENCH.v was successful.
+# Compile of ROMPassword.v was successful.
+# Compile of AccessControlFsm_TEST_BENCH.v was successful.
+# Compile of AccessControl_TEST_BENCH.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Load canceled
+restart -f
+# Loading work.AccessControl_TEST_BENCH
+# Loading work.AccessControl
+# Loading work.ROMPassword
+# Loading work.RAMPassword
+# Loading work.AccessControlFsm
+run 500ns
+# UserLoadValue:[xxxx] , Status_Frame:[11x]
+# UserLoadValue:[1476] , Status_Frame:[110]
+# UserLoadValue:[2456] , Status_Frame:[110]
+# UserLoadValue:[aaaa] , Status_Frame:[110]
+# UserLoadValue:[1476] , Status_Frame:[110]
+# UserLoadValue:[aaaa] , Status_Frame:[110]
