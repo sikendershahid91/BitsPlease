@@ -43,6 +43,6 @@ module TEST_State_transitions();
 endmodule
 
 
-module AccessControlFsm_TEST_BENCH(); 
+module AccessControlFsm_tb(); 
 	TEST_State_transitions test1(); 
 endmodule 

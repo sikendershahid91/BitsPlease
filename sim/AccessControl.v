@@ -21,8 +21,8 @@ module AccessControl(
 	wire [15:0] Address_Wire; 
 	wire [0:0] Access_Grant_wire, wren_wire; 
 	wire [15:0] Memory_data_wire = (ROM_data_wire ^ RAM_data_wire)?
-								ROM_data_wire:
-								RAM_data_wire; 
+								RAM_data_wire:
+								ROM_data_wire; 
 
 	ROMPassword ROM(
 		._Address(Address_Wire), 

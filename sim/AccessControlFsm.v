@@ -1,120 +1,101 @@
 
-module AccessControlFsm(
+
+module AccessControlFsm2(
 	input [0:0] clk, 
 	input [0:0] rst, 
-	input [15:0] _Data_In, 
-	input [0:0]  _Data_In_Load,
-	input [15:0] _Memory_Data_In, 
-	input [1:0]  _Request, // stall 11 / change password 01 / access password 00     
-	output reg [0:0]  Access_Grant,
+	input [16:0] _Data_In, 
+	input [0:0]  _Data_In_Load, 
+	input [15:0] _Memory_In, 
+	output reg [0:0] Access_Grant, 
 	output reg [15:0] Address, 
-	output reg [0:0]  wren,
-	output reg [15:0] Data_Out);
+	output reg [0:0]  wren, 
+	output reg [15:0] Data_Out);  
 
 	reg [0:0] Invalid_Input_Flag;
 	reg [0:0] Password_Change_Flag; 
 	reg [15:0] Password_User_Reg; 
-	reg [15:0] Password_Memory_Reg;   
+	reg [15:0] Password_Memory_Reg;  
 
-	parameter
+	reg [2:0] State; 
+	reg [1:0] Fail_Count;
+
+	parameter 
 		INIT   =0, 
-		REQUEST=1, 
-		ENTER  =2, 
-		DELAY0 =3, 
-		DELAY1 =4, 
-		LOAD   =5, 
-		CHECK  =6, 
-		CHANGE =7, 
-		ACCESS =8, 
-		GRANT  =9;
+		GETPASSWORD =1, 
+		DELAY0 =2,  
+		LOADPASSWORD =3, 
+		CHECK  =4, 
+		ACCESS =5, 
+		CHANGE =6; 
 
-	reg [3:0] State; 
-	reg [1:0] Fail_Count; 
-
-	always @(posedge clk) begin
-		if (rst == 0) begin
-			// reset
-			State <= INIT; 
-		end
-		else begin
-			case(State)
-				INIT: begin
-					Invalid_Input_Flag <= 0; 
-					Password_Change_Flag <= 0; 
-					Access_Grant <= 0; 
-					// Address <= 0; 
-					wren <= 0; 
-					State <= REQUEST; 	
+	always @ (posedge clk) begin
+		if(rst == 0) begin
+			State <= INIT;
+		end  
+		case(State)
+			INIT: begin
+				Access_Grant <= 0; 
+				Address <= 0; 
+				Invalid_Input_Flag <= 0; 
+				Password_Change_Flag <= 0; 
+				Password_User_Reg <= 0; 
+				Password_Memory_Reg <= 0; 
+				Fail_Count <= 0;
+				wren <= 0; 
+				if(_Data_In_Load !== 1) begin
+					State <= INIT; 
+				end else begin
+					State 	<= GETPASSWORD; 
+					{Password_Change_Flag, Address} <= _Data_In_Load; 
 				end
-				REQUEST: begin
-					if (_Request[1] !== 1'b0)begin
-						State <= REQUEST; 
-					end else begin
-						State <= ENTER; 
-					end
+			end
+			GETPASSWORD: begin
+				State <= DELAY0; 
+			end
+			DELAY0: begin
+				if(_Data_In_Load !== 1) begin
+					State <= DELAY0;
+				end else begin
+					State <= LOADPASSWORD; 
 				end
-				ENTER: begin
-					if(_Data_In_Load == 1)begin // shaped 
-						Address <=_Data_In; 
-						State <= DELAY0; 
-					end	else begin
-						State <= ENTER; 
-					end
-				end
-				DELAY0: begin
-					State <= DELAY1;
-				end
-				DELAY1: begin
-					if(_Data_In_Load == 1) begin
-						State <= LOAD; 
-					end else begin
-						State <= DELAY1; 
-					end
-				end
-				LOAD: begin
-					Password_User_Reg <= _Data_In; 
-					Password_Memory_Reg <= _Memory_Data_In;				
-					if(Password_Change_Flag == 1) begin
-						wren <=1; 
-						State <= CHANGE; 
-					end else begin
-						State <= CHECK; 
-					end
-				end
-				CHECK: begin
-					Invalid_Input_Flag <= (Password_User_Reg ^ Password_Memory_Reg)? 1:0; 
-					Password_Change_Flag <=(_Request[0] == 1)? 1:0; 
+			end
+			LOADPASSWORD: begin
+				Password_User_Reg <= _Data_In; 
+				Password_Memory_Reg <= _Memory_In; 
+				State <= CHECK; 
+			end
+			CHECK: begin
+				Invalid_Input_Flag <= (Password_User_Reg ^ Password_Memory_Reg)?1:0; 
+				State <= ACCESS; 
+			end
+			ACCESS: begin
+				if(Invalid_Input_Flag == 1 && Fail_Count != 3) begin
+					State <= GETPASSWORD; 
+					Fail_Count <= Fail_Count + 1'b1; 
+				end else if(Invalid_Input_Flag == 1 && Fail_Count == 3) begin
 					State <= ACCESS; 
+					Access_Grant <=0;  
+				end else if(Password_Change_Flag === 1'b1) begin
+					State <= CHANGE; 
+				end else begin
+					State <= ACCESS; 
+					Access_Grant <=1; 
 				end
-				ACCESS: begin
-					if (Invalid_Input_Flag == 1 && Fail_Count !== 2'd3) begin 
-						Invalid_Input_Flag <=0; 
-						Fail_Count <= Fail_Count + 1'b1; 
-						State <= ENTER;
-					end else if (Invalid_Input_Flag == 1 && Fail_Count === 2'd3) begin
-						State <= GRANT; 
-					end else if (Password_Change_Flag == 1) begin
-						State <= DELAY1; 
-					end else begin
-						State <= GRANT; 
-					end
-				end
-				GRANT: begin
-					if (Invalid_Input_Flag == 1) begin
-						State <= GRANT; 
-						Access_Grant <= 0; 
-					end else begin
-						State <= GRANT; 
-						Access_Grant <= 1; 
-					end
-				end
-				CHANGE: begin
-					Data_Out <= Password_User_Reg; 
-					wren <= 0; 
-					Password_Change_Flag <= 0; 
-					// note: toggle flag after changing password 
-				end
-			endcase
-		end
+			end
+			CHANGE: begin
+				 if(_Data_In_Load !== 1'b1) begin
+				 	State <= CHANGE;
+				 	wren <= 1;
+				 	Password_User_Reg <= _Data_In_Load;   
+				 end else begin
+				 	// write new password 
+				 	Data_Out <= Password_User_Reg; 
+				 	State <= INIT; 
+				 end
+			end
+			default: begin
+				State <= INIT; 
+			end
+		endcase 
 	end
 endmodule 
