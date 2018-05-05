@@ -46,7 +46,7 @@ module AccessControlFsm(
 					State <= INIT; 
 				end else begin
 					State 	<= GETPASSWORD; 
-					{Password_Change_Flag, Address} <= _Data_In_Load; 
+					{Password_Change_Flag, Address} <= _Data_In; 
 				end
 			end
 			GETPASSWORD: begin

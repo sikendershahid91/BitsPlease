@@ -46,7 +46,7 @@ module TEST_password_for_USID();
 	end
 
 	initial begin 
-		$monitor("time:[%6t us], Address:[%h], Data_In:[%h]",
+		$monitor("time:[%0t], Address:[%h], Data_In:[%h]",
 			$time,
 			ROM._Address, 
 			ROM._Data);  
@@ -63,5 +63,4 @@ endmodule
 module ROM_RAM_tb(); 
 	TEST_password_match_in_RAM_ROM test();
 	TEST_password_for_USID test2(); 
-
 endmodule

@@ -1,136 +1,28 @@
 # reading modelsim.ini
 # Loading project BitsPlease
+project open /home/pintobean/Dropbox/AdvanceDigitalDesign/VerilogLabs/lab4/sim/Lab4_Shahid_S
+# reading modelsim.ini
+# Project file /home/pintobean/Dropbox/AdvanceDigitalDesign/VerilogLabs/lab4/sim/Lab4_Shahid_S.mpf was not found.
+# Unable to open project.
+# reading /home/pintobean/intelFPGA_lite/17.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project Lab_Shahid_S
 # Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
 # Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-vsim work.ROM_RAM_tb -Lf altera_mf_ver
-# vsim work.ROM_RAM_tb -Lf altera_mf_ver 
-# Start time: 19:41:08 on Apr 16,2018
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading altera_mf_ver.altsyncram
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-# Loading altera_mf_ver.altsyncram_body
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-add wave -position insertpoint sim:/ROM_RAM_tb/test2/*
-run
+# 2 compiles, 0 failed with no errors.
+vsim work.AccessControl_tb
+# vsim work.AccessControl_tb 
+# Start time: 18:29:10 on Apr 21,2018
+# Loading work.AccessControl_tb
+# Loading work.AccessControl
+add wave -position insertpoint sim:/AccessControl_tb/*
+# Can't move the Now cursor.
 run 100ns
-run 100ns
-run 100ns
-run 100ns
-# Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
-# Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-restart -f
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-run 100ns
-# time:[0], Address:[0000], Data_In:[0000]
-# time:[20000], Address:[0000], Data_In:[ffff]
-# time:[40000], Address:[1476], Data_In:[ffff]
-# time:[80000], Address:[6435], Data_In:[2456]
-run 100ns
-# time:[120000], Address:[5095], Data_In:[ffff]
-run 100ns
-run 100ns
-# Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
-# Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-restart -f
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-run 200ns
-# time:[0], Address:[0000], Data_In:[0000]
-# time:[20000], Address:[0000], Data_In:[ffff]
-# time:[40000], Address:[1476], Data_In:[ffff]
-# time:[80000], Address:[6435], Data_In:[2456]
-# time:[120000], Address:[5095], Data_In:[4adf]
-# time:[160000], Address:[5095], Data_In:[49c3]
-# Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
-# Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-restart -f
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-run 200ns
-# time:[0], Address:[0000], Data_In:[0000]
-# time:[20000], Address:[0000], Data_In:[ffff]
-# time:[40000], Address:[1476], Data_In:[ffff]
-# time:[80000], Address:[6435], Data_In:[2456]
-# time:[120000], Address:[5095], Data_In:[4adf]
-# time:[160000], Address:[5095], Data_In:[49c3]
-# Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
-# Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-restart -f
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-run 200ns
-# time:[0 us], Address:[0000], Data_In:[0000]
-# time:[20000 us], Address:[0000], Data_In:[ffff]
-# time:[40000 us], Address:[1476], Data_In:[ffff]
-# time:[80000 us], Address:[6435], Data_In:[2456]
-# time:[120000 us], Address:[5095], Data_In:[4adf]
-# time:[160000 us], Address:[5095], Data_In:[49c3]
-# Compile of AccessControl.v was successful.
-# Compile of AccessControlFsm.v was successful.
-# Compile of RAMPassword.v was successful.
-# Compile of ROMPassword.v was successful.
-# Compile of AccessControl_tb.v was successful.
-# Compile of AccessControlFsm_tb.v was successful.
-# Compile of ROM_RAM_tb.v was successful.
-# 7 compiles, 0 failed with no errors.
-run 200ns
-restart -f
-# Loading work.ROM_RAM_tb
-# Loading work.TEST_password_match_in_RAM_ROM
-# Loading work.ROMPassword
-# Loading work.RAMPassword
-# Loading work.TEST_password_for_USID
-run 200ns
-# time:[     0 us], Address:[0000], Data_In:[0000]
-# time:[ 20000 us], Address:[0000], Data_In:[ffff]
-# time:[ 40000 us], Address:[1476], Data_In:[ffff]
-# time:[ 80000 us], Address:[6435], Data_In:[2456]
-# time:[120000 us], Address:[5095], Data_In:[4adf]
-# time:[160000 us], Address:[5095], Data_In:[49c3]
+# Reset has been pressed
+# time:[0], Address:[x], State:[000], Status:[xx], Flag:[x], InputReg:[xxxx], PassReg[xxxx]
+# Button has been released at 20
+# Reset has been pressed
+# time:[20], Address:[0], State:[001], Status:[10], Flag:[0], InputReg:[0000], PassReg[0000]
+# Reset has been pressed
+# time:[40], Address:[0], State:[000], Status:[10], Flag:[0], InputReg:[0000], PassReg[0000]
+# time:[60], Address:[0], State:[001], Status:[10], Flag:[0], InputReg:[0000], PassReg[0000]
+# time:[80], Address:[0], State:[010], Status:[10], Flag:[0], InputReg:[0000], PassReg[0000]
