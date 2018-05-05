@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 
-module TetrisTestTop_tb();
+module TimerTop_tb();
   reg clk, rst;
 
   wire gLED, rLED;
