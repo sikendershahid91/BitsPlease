@@ -3,8 +3,8 @@
 module One_mSecondTimer_tb();
   reg pulseClk;
   wire pulseOneS;
-
-  One_mSecondTimer DUT_OmST(pulseClk, pulseOneS);
+  wire LED;
+  One_mSecondTimer DUT_OmST(pulseClk, pulseOneS, LED);
 
   always begin
     pulseClk = 1;
@@ -12,4 +12,5 @@ module One_mSecondTimer_tb();
     pulseClk = 0;
     #10;
   end
+
 endmodule

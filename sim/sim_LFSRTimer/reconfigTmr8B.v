@@ -1,5 +1,5 @@
-module reconfigTmr8B(enable, pulseClk, timeAdj, pulseROut);
-  input enable;
+module reconfigTmr8B(rst, pulseClk, timeAdj, pulseROut);
+  input rst;
   input pulseClk;
   input [7:0] timeAdj;
   output pulseROut;
@@ -11,7 +11,7 @@ module reconfigTmr8B(enable, pulseClk, timeAdj, pulseROut);
   reg [1:0] state;
 
   always @ (posedge pulseClk) begin
-    if(enable == 1) begin
+    if(rst == 0) begin
       state <= s_init;
     end
     else begin

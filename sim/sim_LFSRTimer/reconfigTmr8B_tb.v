@@ -1,11 +1,11 @@
 `timescale 1ns/100ps
 module reconfigTmr8B_tb();
   reg pulseClk;
-  reg enable;
+  reg rst;
   reg [7:0] timeAdj;
   wire pulseROut;
 
-  reconfigTmr8B DUT_rTmr(enable, pulseClk, timeAdj, pulseROut);
+  reconfigTmr8B DUT_rTmr(rst, pulseClk, timeAdj, pulseROut);
 
   always begin
     pulseClk = 1;
@@ -16,8 +16,8 @@ module reconfigTmr8B_tb();
 
   initial begin
     timeAdj = 8'b11001000;
-    enable = 1;
+    rst = 0;
     #13;
-    enable = 0; 
+    rst = 1;
   end
 endmodule
