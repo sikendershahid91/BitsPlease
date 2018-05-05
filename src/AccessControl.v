@@ -9,7 +9,7 @@ module AccessControl(
 	input clk, 
 	input rst, 
 	input [1:0]  _Request, 
-	input [15:0] _Data_In, 
+	input [16:0] _Data_In, 
 	input [0:0]  _Data_In_Load, 
 	output wire [2:0]  _Status_Frame); 
 // notes
@@ -20,9 +20,11 @@ module AccessControl(
 	wire [15:0] FSM_data_wire; 
 	wire [15:0] Address_Wire; 
 	wire [0:0] Access_Grant_wire, wren_wire; 
-	wire [15:0] Memory_data_wire = (ROM_data_wire ^ RAM_data_wire)?
+	wire [15:0] Memory_data_wire; 
+
+	assign Memory_data_wire = (ROM_data_wire ^ RAM_data_wire)?
 								RAM_data_wire:
-								ROM_data_wire; 
+								ROM_data_wire;
 
 	ROMPassword ROM(
 		._Address(Address_Wire), 
@@ -42,7 +44,6 @@ module AccessControl(
 		._Data_In(_Data_In), 
 		._Data_In_Load(_Data_In_Load), 
 		._Memory_Data_In(Memory_data_wire), 
-		._Request(_Request), 
 		.Access_Grant(Access_Grant_wire),
 		.Address(Address_Wire), 
 		.wren(wren_wire),
