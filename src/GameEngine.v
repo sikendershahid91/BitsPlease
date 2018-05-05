@@ -1,9 +1,9 @@
-// ECE 5440
-// Author: Robert Duenez | PSID: 0959
-// Description: Takes a button input and outputs the inversion signal.
+// GAME ENGINE
+// Description: Takes a button input and stops a single block.
+// Checks to see if the block is on the stack.
 // Comments/Log: None.
 
-module gameEngine (clk, rstBtn,dropBtn,timer, lineDisplay,);
+module gameEngine (clk, rstBtn,,dropBtn,timer, lineDisplay,);
 
 	input clk, rstBtn;
 	input dropBtn;
