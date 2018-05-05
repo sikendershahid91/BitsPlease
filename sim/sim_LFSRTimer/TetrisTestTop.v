@@ -10,5 +10,5 @@ module TetrisTestTop(clk, rstBtn, rLED, gLED);
 
   One_mSecondTimer one_ms(pulseOut, pulseOnems, rLED);
 
-  // reconfigTmr8B rTmr1(rstBtn, pulseOnems, 200, gLED);
+  reconfigTmr8B rTmr1(pulseOnems, 20, gLED);
 endmodule
