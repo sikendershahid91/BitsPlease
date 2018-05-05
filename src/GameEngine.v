@@ -3,7 +3,7 @@
 // Checks to see if the block is on the stack.
 // Comments/Log: None.
 
-module gameEngine (clk, rstBtn,,dropBtn,timer, lineDisplay,);
+module gameEngine (clk, rstBtn,dropBtn,timer, lineDisplay,);
 
 	input clk, rstBtn;
 	input dropBtn;
