@@ -18,19 +18,17 @@ module BlockShift(blockLoc, stopBtn, adjClkPulse, newBlockLoc);
 					tempBlock <= blockLoc;
 					enable <= 0;
 				end
-				else begin
-					tempBlock2 <= tempBlock;
-				end
 				state <= s_shift;
 			end
 			s_shift: begin
-				tempBlock2 <= tempBlock >> 1;
+				tempBlock <= tempBlock >> 1;
 				state <= s_init;
 			end
 			default: begin
 				state <= s_init;
 				enable <= 1;
 			end
+		endcase
 	end
 
 	assign newBlockLoc = tempBlock;
