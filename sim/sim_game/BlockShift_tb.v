@@ -15,6 +15,10 @@ module BlockShift_tb();
 
   initial begin
     blockLoc = 8'b10000000;
+    #800;
+    stopBtn = 1;
+    #200;
+    stopBtn = 0;
     // blockLoc = 8'b01000000;
     // blockLoc = 8'b00100000;
     // blockLoc = 8'b00010000;
