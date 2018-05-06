@@ -43,7 +43,7 @@ module BitsPlease(
 	access control : password and login 
 
 	*/
-
+	
 
 	/*
 
@@ -66,6 +66,8 @@ module BitsPlease(
 
 	*/
 	wire [31:0] display_wire = (score_select)? game_score:score_board_scores; 
+		//change this ^ for 0 to be ground 
+		
 
 	
 

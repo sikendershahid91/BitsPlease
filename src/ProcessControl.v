@@ -7,7 +7,7 @@ module ProcessControl(
 	//hardware signals 
 	input  [17:0] switches, // we are doing this for security  
 	input  [2:0]  buttons,
-	output [2:0]  buttons_select,
+	output reg [2:0]  buttons_select,
 	
 	//feedback signals 
 	input [0:0] access_control_fb, 
