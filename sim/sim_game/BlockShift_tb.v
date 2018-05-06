@@ -15,5 +15,12 @@ module BlockShift_tb();
 
   initial begin
     blockLoc = 8'b10000000;
+    // blockLoc = 8'b01000000;
+    // blockLoc = 8'b00100000;
+    // blockLoc = 8'b00010000;
+    // blockLoc = 8'b00001000;
+    // blockLoc = 8'b00000100;
+    // blockLoc = 8'b00000010;
+    // blockLoc = 8'b00000001;
   end
 endmodule
