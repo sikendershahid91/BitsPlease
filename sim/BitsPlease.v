@@ -10,7 +10,6 @@ module BitsPlease(
 	//output LCD, 
 	); 
 
-
 	wire [2:0] push_buttons_shaped; 
 	ButtonShaper b1(clk, PushButtons[0], push_buttons_shaped[0]), 
 				 b2(clk, PushButtons[1], push_buttons_shaped[1]),

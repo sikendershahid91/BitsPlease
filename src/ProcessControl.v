@@ -1,0 +1,42 @@
+//sikender
+
+module ProcessControl(
+	input [0:0] clk, 
+	input [0:0] rst, 
+
+	//hardware signals 
+	input  [17:0] switches, // we are doing this for security  
+	input  [2:0]  buttons,
+	output [2:0]  buttons_select,
+	
+	//feedback signals 
+	input [0:0] access_control_fb, 
+	input [0:0] game_fb, 
+	input [0:0] scoreboard_fb, 
+	
+	//password
+	output reg [15:0] userinput, 
+	output reg [0:0]  load, 
+	output reg [0:0]  password_change,
+
+	//lcd & LEDs
+	output reg [2:0] lcd_control,
+	output reg [3:0] led_control,  
+
+	//score & game
+	output reg [15:0] userid,
+	output reg [1:0]  game_score_select
+	); 
+
+	parameter 
+			  MAIN=0, 
+			  ACCESSCONTROL=1,
+	 		  GAME=2,
+	 		  SCOREBOARD=3; 
+	reg [2:0] STATE;
+	reg [0:0] login_flag; // for login and logout 
+
+	always @(posedge clk) begin
+		
+	end
+endmodule 
