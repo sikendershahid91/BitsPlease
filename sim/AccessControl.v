@@ -9,7 +9,7 @@ module AccessControl(
 	input clk, 
 	input rst, 
 	input [1:0]  _Request, 
-	input [15:0] _Data_In, 
+	input [16:0] _Data_In, 
 	input [0:0]  _Data_In_Load, 
 	output wire [2:0]  _Status_Frame); 
 // notes
