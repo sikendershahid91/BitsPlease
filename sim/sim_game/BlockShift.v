@@ -7,8 +7,13 @@ module BlockShift(blockLoc, stopBtn, adjClkPulse, newBlockLoc);
 	reg [7:0] tempBlock;
 	reg [7:0] strBlock;
 
+<<<<<<< HEAD
 	reg [1:0] state;
 	parameter s_init = 0, s_shift = 1, s_pause = 2;
+=======
+	reg state;
+	parameter s_init = 0, s_shift = 1;
+>>>>>>> gamelogic
 	reg enable, direction;
 	reg [2:0] xCount;
 
@@ -22,6 +27,7 @@ module BlockShift(blockLoc, stopBtn, adjClkPulse, newBlockLoc);
 				state <= s_shift;
 			end
 			s_shift: begin
+<<<<<<< HEAD
 				if (stopBtn == 1) begin
 					state <= s_pause;
 					//Do checks on if there is anything below
@@ -50,6 +56,24 @@ module BlockShift(blockLoc, stopBtn, adjClkPulse, newBlockLoc);
 			s_pause: begin
 				strBlock <= tempBlock;
 				state <= s_pause;
+=======
+				if(direction == 0) begin
+					xCount <= xCount + 1;
+					tempBlock <= tempBlock >> 1;
+				end
+				else if (direction == 1) begin
+					xCount <= xCount - 1;
+					tempBlock <= tempBlock << 1;
+				end
+				
+				if (xCount == 6)begin
+					direction <= 1;
+				end
+				else if (xCount == 1) begin
+					direction <= 0;
+			
+				state <= s_init;
+>>>>>>> gamelogic
 			end
 			default: begin
 				enable <= 1;
