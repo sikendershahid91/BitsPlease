@@ -3,21 +3,17 @@
 module ProcessControl(
 	input [0:0] clk, 
 	input [0:0] rst, 
+	input [2:0] buttons,
 
-	//hardware signals 
-	input  [17:0] switches, // we are doing this for security  
-	input  [2:0]  buttons,
-	output reg [2:0]  buttons_select,
-	
 	//feedback signals 
 	input [0:0] access_control_fb, 
 	input [0:0] game_fb, 
 	input [0:0] scoreboard_fb, 
 	
-	//password
-	output reg [15:0] userinput, 
-	output reg [0:0]  load, 
-//	output reg [0:0]  password_change,
+	//hardware signals
+	output reg [2:0] buttons_select,
+	output reg [0:0] switches_select,
+//	output reg [0:0] password_change,
 
 	//lcd & LEDs
 	output reg [2:0] lcd_control,
@@ -34,6 +30,7 @@ module ProcessControl(
 			  TRANSITION=2,
 	 		  GAME=3,
 	 		  SCOREBOARD=4;
+	 		  DELAY=5; 
 
 	reg [2:0] STATE;
 
@@ -44,13 +41,12 @@ module ProcessControl(
 		else begin
 			case(STATE)
 				INIT: begin
-					buttons_select <= 1; 
-					userinput <= 0; 
-					load <= 0;  
+					buttons_select <= 1;
+					switches_select <= 0; 
+					game_score_select <= 0; 
 					lcd_control <= 0; 
 					led_control <= 0; 
 					userid <= 0; 
-					game_score_select <= 0; 
 					if(buttons[0] == 1) begin
 						STATE <= ACCESSCONTROL; 
 					end
@@ -59,39 +55,49 @@ module ProcessControl(
 					end
 				end
 				ACCESSCONTROL: begin // need to add delays
-					buttons_select <= 1; 
-					userinput <= switches[15:0]; 
-					userid <= switches[15:0]; 
-					load <= buttons[0]; 
+					buttons_select <= 2;
+					switches_select <= 1; 
+					game_score_select <=0; 
 					lcd_control <= 1; 
+					led_control <= 1; 
+					userid <= switches[15:0]; 
 					if(access_control_fb == 1) begin
-						STATE <= GAME; 
+						buttons_select <= 1;
+						switches_select <= 0; 
+						game_score_select <=0;  
+						lcd_control <= 2; 
 						led_control <= 2; // green
+						STATE <= TRANSITION;
 					end else begin
-						STATE <= ACCESSCONTROL;
 						led_control <= 1; 
-						lcd_control <= 2;// red
+						lcd_control <= 2; // display invalid password
+						STATE <= ACCESSCONTROL;
 					end
 				end
 				TRANSITION: begin
-					buttons_select <= 1; 
-					lcd_control <=3; 
 					if(buttons[2] == 1) begin
-						STATE <= GAME; 
+						buttons_select <= 3; 
+						game_score_select <=1;  
+						lcd_control <= 2; // display play game
+						STATE <= GAME;
 					end
 					else if(buttons[1] == 1) begin
+						buttons_select <= 4;
+						game_score_select <=2;  
+						lcd_control <= 2; // display see see scores
 						STATE <= SCOREBOARD; 
 					end
 					else if(buttons[0] == 1) begin
+						buttons_select <= 1;
+						game_score_select <=0;  
+						lcd_control <= 2; // display logged out 
 						STATE <= INIT; 
 					end
 					else begin
 						STATE <= TRANSITION; 
 					end
 				end
-				GAME: begin
-					buttons_select <= 2; 
-					game_score_select <= 1; 
+				GAME: begin 
 					if(game_fb == 1) begin
 						STATE <= TRANSITION; 
 					end
@@ -100,8 +106,6 @@ module ProcessControl(
 					end
 				end
 				SCOREBOARD: begin
-					buttons_select <= 3; 
-					game_score_select <= 2; 
 					if(scoreboard_fb == 1) begin
 						STATE <= TRANSITION; 
 					end else begin

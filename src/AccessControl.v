@@ -48,6 +48,6 @@ module AccessControl(
 		.wren(wren_wire),
 		.Data_Out(FSM_data_wire));  
 
-	assign _Access_grant = Access_Grant_wire;
+	assign _Access_grant = Access_Grant_wire;  // need to switch off when logout 
 	
 endmodule 
