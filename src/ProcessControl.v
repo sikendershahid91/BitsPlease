@@ -4,6 +4,7 @@ module ProcessControl(
 	input [0:0] clk, 
 	input [0:0] rst, 
 	input [2:0] buttons,
+	input [17:0] switches,
 
 	//feedback signals 
 	input [0:0] access_control_fb, 
@@ -29,8 +30,7 @@ module ProcessControl(
 			  ACCESSCONTROL=1,
 			  TRANSITION=2,
 	 		  GAME=3,
-	 		  SCOREBOARD=4;
-	 		  DELAY=5; 
+	 		  SCOREBOARD=4; 
 
 	reg [2:0] STATE;
 

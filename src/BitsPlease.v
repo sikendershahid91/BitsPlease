@@ -4,13 +4,27 @@ module BitsPlease(
 	input [0:0]  clk, 
 	input [0:0]  rst,
 	input [2:0]  PushButtons, 
-	input [17:0] ToggleSwitch 
-	output [1:0] LED; // LED[0] = red led LED[1] = green led
+	input [17:0] ToggleSwitch, 
+	output [1:0] LED // LED[0] = red led LED[1] = green led
 
 	//outputs for  7segmentdisplay, 
 	//outputs for  matrix 
 	//outputs for  LCD, 
 	); 
+
+	wire [2:0]  push_buttons_shaped; 
+	wire [2:0]  button_process_control,
+			    button_access_control,
+			    button_game, 
+			    button_scoreboard;
+    wire [17:0] Switches; 
+    wire [0:0]  switches_select; 
+	wire [2:0]  button_select;
+	wire [1:0]  score_select; 
+	wire [3:0]  LCD_select; 
+	wire [15:0] userid_const;  
+	wire [0:0]  userinput_load; 
+	wire [0:0]  access_grant;
 
 	/*
 
@@ -18,15 +32,11 @@ module BitsPlease(
 	switches: controled by the process control to allow I/O 
 
 	*/ 
-	wire [2:0] push_buttons_shaped; 
 	ButtonShaper b1(clk, PushButtons[0], push_buttons_shaped[0]), 
 				 b2(clk, PushButtons[1], push_buttons_shaped[1]),
 				 b3(clk, PushButtons[2], push_buttons_shaped[2]);
 
-	wire [2:0] button_process_control,
-			   button_access_control,
-			   button_game, 
-			   button_scoreboard;
+	
 	ButtonDecoder button_decoder(
 		.Select(button_select), 
 		.ButtonVector(push_buttons_shaped), 
@@ -35,23 +45,17 @@ module BitsPlease(
 		.ButtonVector3(button_game), 
 		.ButtonVector4(button_scoreboard)); 
 	
-	wire[17:0] Switches; 
 	SwitchesControl sw(switches_select,ToggleSwitch,Switches); 
 
 	/*
 
 	process control : main control for the game
 
-	*/ 
-	wire [0:0] switches_select; 
-	wire [2:0] button_select;
-	wire [1:0] score_select; 
-	wire [3:0] LCD_select; 
-	wire [15:0] userid_const;  
-	wire [0:0]  userinput_load;  
+	*/  
 	ProcessControl process_control(
 		.clk(clk),
 		.rst(rst),  
+		.switches(Switches),
 		.buttons(button_process_control), 
 		.access_control_fb(access_grant), 
 		.game_fb(/*  */), 
@@ -68,7 +72,7 @@ module BitsPlease(
 	access control : password and login 
 
 	*/
-	wire [0:0] access_grant;
+	
 	AccessControl access_control(
 		.clk(clk),
 		.rst(rst), 
