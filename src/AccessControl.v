@@ -8,10 +8,9 @@
 module AccessControl(
 	input clk, 
 	input rst, 
-	input [1:0]  _Request, 
 	input [16:0] _Data_In, 
 	input [0:0]  _Data_In_Load, 
-	output wire [2:0]  _Status_Frame); 
+	output [0:0] _Access_grant); 
 // notes
 // if access grant -0 than led redd 
 	
@@ -49,6 +48,6 @@ module AccessControl(
 		.wren(wren_wire),
 		.Data_Out(FSM_data_wire));  
 
-	assign _Status_Frame = {2'b11,Access_Grant_wire}; // need to be changed
-
+	assign _Access_grant = Access_Grant_wire;
+	
 endmodule 
