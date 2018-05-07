@@ -15,9 +15,8 @@ module ProcessControl_tb();
 	wire [2:0] _buttons_select;
 	wire [0:0] _switches_select; 
 	wire [2:0] _lcd_select;
-	wire [3:0] _game_score_select;
+	wire [1:0] _game_score_select;
 	wire [1:0] _led_control;
-	wire [15:0] _userID;
 
 	ProcessControl pc(
 		.clk(clk), 
@@ -30,7 +29,6 @@ module ProcessControl_tb();
 		.switches_select(_switches_select),
 		.lcd_control(_lcd_select),
 		.led_control(_led_control),  
-		.userid(_userID),
 		.game_score_select(_game_score_select)); 
 
 
@@ -58,8 +56,7 @@ module ProcessControl_tb();
 			_switches_select, 
 			_game_score_select,
 			_lcd_select, 
-			_led_control, 
-			_output); 
+			_led_control); 
 
 		clk = 1; rst = 1; 
 //		#10 @(posedge clk) 
