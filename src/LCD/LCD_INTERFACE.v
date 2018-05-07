@@ -1,33 +1,25 @@
 `timescale 1ns / 1ps
-///////////////////////////////////////////////////////////////////////////
+
 module FPGA_2_LCD(
-	CLK, LCD_RS, LCD_RW, LCD_E, LCD_DB, /*RDY, DATA, OPER, ENB,*/ RST, LCD_ON, LCD_CHAR_ARRAY
+	CLK, LCD_RS, LCD_RW, LCD_E, LCD_DB, RST, LCD_ON, LCD_CHAR_ARRAY
 );
-input CLK;			// For this code to work without modification, CLK should equal 24MHz
+input CLK;			
 input RST;
+
+input [3:0] LCD_CHAR_ARRAY;         
 
 output reg LCD_RS, LCD_RW, LCD_E, LCD_ON;
 output reg [7:0] LCD_DB = 0;
 
-reg clk_400hz_enable; //LCD_RW_INT;   //: std_logic;
-reg [7:0] next_char; //: STD_LOGIC_VECTOR(7 downto 0);
-//reg [7:0] data_bus_value; 
-reg [19:0] clk_count_400hz;          //: STD_LOGIC_VECTOR(19 downto 0);
-reg [4:0] char_count;                //: STD_LOGIC_VECTOR(4 downto 0);
-//reg [7:0] data_bus;                  //: STD_LOGIC_VECTOR(7 downto 0);	
-input [3:0] LCD_CHAR_ARRAY;           //: STD_LOGIC_VECTOR(3 DOWNTO 0);
-//		reg [7*32:0] lcd_display_string_01 = "    WELCOME!    LOGIN OR QUIT?  "; //: character_string;
-//		reg [7*32:0] lcd_display_string_02 = "    WELCOME!    ENTER A VALID ID";
-//		reg [7*32:0] lcd_display_string_03 = "    WELCOME!    ENTER A PASSWORD";
-//		reg [7*32:0] lcd_display_string_04 = "PLAY GAME? QUIT?SEE SCORES?     ";
-//		reg [7*32:0] lcd_display_string_05 = "TRY TO GET THE  HIGH SCORE!     ";
-//		reg [7*32:0] lcd_display_string_06 = "THESE ARE THE   TOP 3 SCORES!   ";
-//		reg [7*32:0] lcd_display_string = "      TEAM         BITS PLEASE  ";
-//		reg [7:0] char = 8'h00;
+reg clk_400hz_enable; 					
+reg [7:0] next_char; 					
+reg [19:0] clk_count_400hz;         
+reg [4:0] char_count;               
+
 wire [7:0] string1 [31:0];wire [7:0] string2 [31:0];wire [7:0] string3 [31:0];
 wire [7:0] string4 [31:0];wire [7:0] string5 [31:0];wire [7:0] string6 [31:0];
 wire [7:0] string [31:0];
-//-----------------------Hex Characters----------------------
+//-----------------------Hex Characters Used----------------------
 reg [7:0] W = 8'h57;reg [7:0] E = 8'h45;reg [7:0] L = 8'h4C;reg [7:0] C = 8'h43;
 reg [7:0] O = 8'h4F;reg [7:0] M = 8'h4D;
 reg [7:0] G = 8'h47;reg [7:0] I = 8'h49;reg [7:0] N = 8'h4E;reg [7:0] R = 8'h52;
@@ -35,17 +27,17 @@ reg [7:0] Q = 8'h51;reg [7:0] U = 8'h55;reg [7:0] T = 8'h54;
 reg [7:0] A = 8'h41;reg [7:0] V = 8'h56;reg [7:0] D = 8'h44;reg [7:0] P = 8'h50;
 reg [7:0] S = 8'h53;reg [7:0] Y = 8'h59;reg [7:0] H = 8'h48;
 reg [7:0] B = 8'h42;reg [7:0] SP = 8'h20;
-reg [7:0] _! = 8'h21;reg [7:0] _? = 8'h3F;reg [7:0] _3 = 8'h33;reg [7:0]arrow = 8'h7E;
-//-----------------------Assign Char Strings-----------------
-// string 1
+reg [7:0] EX = 8'h21;reg [7:0] QU = 8'h3F;reg [7:0] _3 = 8'h33;reg [7:0]arrow = 8'h7E;
+//-----------------------Assign Char to Strings-----------------
+// string 1 "WELCOME!        LOGIN OR QUIT?"
 assign string1[0] = W;assign string1[8] = SP;assign string1[16] = L;assign string1[24] = SP;
 assign string1[1] = E;assign string1[9] = SP;assign string1[17] = O;assign string1[25] = Q;
 assign string1[2] = L;assign string1[10] = SP;assign string1[18] = G;assign string1[26] = U;
 assign string1[3] = C;assign string1[11] = SP;assign string1[19] = I;assign string1[27] = I;
 assign string1[4] = O;assign string1[12] = SP;assign string1[20] = N;assign string1[28] = T;
-assign string1[5] = M;assign string1[13] = SP;assign string1[21] = SP;assign string1[29] = ?;
+assign string1[5] = M;assign string1[13] = SP;assign string1[21] = SP;assign string1[29] = QU;
 assign string1[6] = E;assign string1[14] = SP;assign string1[22] = O;assign string1[30] = SP;
-assign string1[7] = !;assign string1[15] = SP;assign string1[23] = R;assign string1[31] = SP;
+assign string1[7] = EX;assign string1[15] = SP;assign string1[23] = R;assign string1[31] = SP;
 // string 2
 assign string2[0] = W;assign string2[8] = SP;assign string2[16] = E;assign string2[24] = V;
 assign string2[1] = E;assign string2[9] = SP;assign string2[17] = N;assign string2[25] = A;
@@ -54,7 +46,7 @@ assign string2[3] = C;assign string2[11] = SP;assign string2[19] = E;assign stri
 assign string2[4] = O;assign string2[12] = SP;assign string2[20] = R;assign string2[28] = D;
 assign string2[5] = M;assign string2[13] = SP;assign string2[21] = SP;assign string2[29] = SP;
 assign string2[6] = E;assign string2[14] = SP;assign string2[22] = A;assign string2[30] = I;
-assign string2[7] = !;assign string2[15] = SP;assign string2[23] = SP;assign string2[31] = D;
+assign string2[7] = EX;assign string2[15] = SP;assign string2[23] = SP;assign string2[31] = D;
 // string 3
 assign string3[0] = W;assign string3[8] = SP;assign string3[16] = E;assign string3[24] = P;
 assign string3[1] = E;assign string3[9] = SP;assign string3[17] = N;assign string3[25] = A;
@@ -63,20 +55,20 @@ assign string3[3] = C;assign string3[11] = SP;assign string3[19] = E;assign stri
 assign string3[4] = O;assign string3[12] = SP;assign string3[20] = R;assign string3[28] = W;
 assign string3[5] = M;assign string3[13] = SP;assign string3[21] = SP;assign string3[29] = O;
 assign string3[6] = E;assign string3[14] = SP;assign string3[22] = A;assign string3[30] = R;
-assign string3[7] = !;assign string3[15] = SP;assign string3[23] = SP;assign string3[31] = D;
+assign string3[7] = EX;assign string3[15] = SP;assign string3[23] = SP;assign string3[31] = D;
 // string 4
 assign string4[0] = P;assign string4[8] = E;assign string4[16] = O;assign string4[24] = C;
-assign string4[1] = L;assign string4[9] = ?;assign string4[17] = R;assign string4[25] = O;
+assign string4[1] = L;assign string4[9] = QU;assign string4[17] = R;assign string4[25] = O;
 assign string4[2] = A;assign string4[10] = SP;assign string4[18] = SP;assign string4[26] = R;
 assign string4[3] = Y;assign string4[11] = Q;assign string4[19] = S;assign string4[27] = E;
 assign string4[4] = SP;assign string4[12] = U;assign string4[20] = E;assign string4[28] = S;
-assign string4[5] = G;assign string4[13] = I;assign string4[21] = E;assign string4[29] = ?;
+assign string4[5] = G;assign string4[13] = I;assign string4[21] = E;assign string4[29] = QU;
 assign string4[6] = A;assign string4[14] = T;assign string4[22] = SP;assign string4[30] = SP;
-assign string4[7] = M;assign string4[15] = ?;assign string4[23] = S;assign string4[31] = SP;
+assign string4[7] = M;assign string4[15] = QU;assign string4[23] = S;assign string4[31] = SP;
 // string 5
 assign string5[0] = T;assign string5[8] = E;assign string5[16] = H;assign string5[24] = R;
 assign string5[1] = R;assign string5[9] = T;assign string5[17] = I;assign string5[25] = E;
-assign string5[2] = Y;assign string5[10] = SP;assign string5[18] = G;assign string5[26] = !;
+assign string5[2] = Y;assign string5[10] = SP;assign string5[18] = G;assign string5[26] = EX;
 assign string5[3] = SP;assign string5[11] = T;assign string5[19] = H;assign string5[27] = SP;
 assign string5[4] = T;assign string5[12] = H;assign string5[20] = SP;assign string5[28] = SP;
 assign string5[5] = O;assign string5[13] = E;assign string5[21] = S;assign string5[29] = SP;
@@ -87,7 +79,7 @@ assign string6[0] = T;assign string6[8] = E;assign string6[16] = T;assign string
 assign string6[1] = H;assign string6[9] = SP;assign string6[17] = O;assign string6[25] = R;
 assign string6[2] = E;assign string6[10] = T;assign string6[18] = P;assign string6[26] = E;
 assign string6[3] = S;assign string6[11] = H;assign string6[19] = SP;assign string6[27] = S;
-assign string6[4] = E;assign string6[12] = E;assign string6[20] = _3;assign string6[28] = !;
+assign string6[4] = E;assign string6[12] = E;assign string6[20] = _3;assign string6[28] = EX;
 assign string6[5] = SP;assign string6[13] = SP;assign string6[21] = SP;assign string6[29] = SP;
 assign string6[6] = A;assign string6[14] = SP;assign string6[22] = S;assign string6[30] = SP;
 assign string6[7] = R;assign string6[15] = SP;assign string6[23] = C;assign string6[31] = SP;
@@ -101,8 +93,6 @@ assign string[5] = SP;assign string[13] = SP;assign string[21] = T;assign string
 assign string[6] = T;assign string[14] = SP;assign string[22] = S;assign string[30] = SP;
 assign string[7] = E;assign string[15] = SP;assign string[23] = SP;assign string[31] = SP;
 
-//integer char_cnt = 0;
-
 /*----------------------SOME NOTES-------------------
 when RS and R/W change STATE...wait for at least 40ns ( ~1clock cycle )
 after that period of time bring E high and invert E every 250ns (can be larger) ( ~6 clock cycles)
@@ -112,9 +102,6 @@ when E goes LOW, maintain DATA for atleast 10ns
 CLOCK=24MHz ==> 41.667ns
 -------------------------END OF NOTES-------------------*/
 
-//-- LCD_RW PORT is assigned to it matching SIGNAL 
-//LCD_RW <= LCD_RW_INT;
-
 //===============================================================================================
 //------------------------------___State Interface Messages_-------------------------------------
 //===============================================================================================
@@ -123,7 +110,7 @@ parameter INIT1 = 0, INIT2 = 1, INIT3 = 2, FCNSET = 3, DISPOFF = 4, DISPON = 5,
 	DISPCLR = 6, MODESET = 7, DROP_LCD_E = 8, HOLD = 9, LINE2 = 10, PRINT_STRING = 11, RETURN = 12;
 
 //--=====================================================================-- 
-//--======================= CLOCK #1 SIGNALS ============================--  
+//--======================= 400HZ CLOCK SIGNAL ============================--  
 //--=====================================================================-- 
 always @(posedge CLK) begin
 		if (RST == 0) begin
@@ -181,7 +168,7 @@ always @(LCD_CHAR_ARRAY) begin
 			//  char_cnt <= char_count;
             next_char <= string6[char_count];
 		end
-		default:
+		default: // TEAM NAME
 				next_char <= string[char_count];
 	endcase 
 end 
@@ -190,7 +177,6 @@ end
 //-----------------------------Create the STATE MACHINE------------------------------------
 //##########################################################################################
 reg [3:0] STATE = 0, NXT_CMD = 0;
-//reg [1:0] SUBSTATE = 0;
 
 always @(posedge CLK) begin
 	if (RST == 0) begin
@@ -286,35 +272,30 @@ always @(posedge CLK) begin
                LCD_RS <= 1'b1;
                LCD_RW <= 1'b0;
 					
-					
 					LCD_DB <= next_char;
-					//LCD_E <= 1'b0;
-					
-					
-
+				
 //------------------CHAR SEQUENCE TO PRINT-------------------------
                           
                  STATE <= DROP_LCD_E; 
                           
                  //-- Loop to send out 32 characters to LCD Display (16 by 2 lines)
-                 if ((char_count < 8'b00011111) && (next_char != 8'hFE)) begin
+               if ((char_count < 8'b00011111) && (next_char != 8'hFE)) begin
                  	char_count <= char_count + 1'b1;  
-				end
-                else begin
+					end
+               else begin
                 	char_count <= 5'b00000;
-                end
-                //-- Jump to second line?
-                if (char_count == 4'b1111) begin 
+               end
+               //-- Jump to second lineQU
+               if (char_count == 4'b1111) begin 
                 	NXT_CMD <= LINE2;
-				end
-                //-- Return to first line?
-                else if ((char_count == 8'b00011111) || (next_char == 8'hFE)) begin
+					end
+               //-- Return to first lineQU
+               else if ((char_count == 8'b00011111) || (next_char == 8'hFE)) begin
                 	NXT_CMD <= RETURN;
-				end	 
-                else begin
+					end	 
+               else begin
                     NXT_CMD <= PRINT_STRING; 
-                end 
-
+               end 
 			end	
 //			-- Set write address to line 2 character 1
 //		   --======================================--
@@ -326,7 +307,6 @@ always @(posedge CLK) begin
 				STATE <= DROP_LCD_E;
 				NXT_CMD <= PRINT_STRING;  
 			end
-		  
 //		   -- Return write address to first character position on line 1
 //		   --=========================================================--
 		   RETURN: begin // return_home =>
@@ -337,23 +317,21 @@ always @(posedge CLK) begin
 				STATE <= DROP_LCD_E;
 				NXT_CMD <= PRINT_STRING; 
 			end
-			
 //			-- lcd_e will match clk_CUSTOM_hz_enable line when instructed to go LOW, however, if the clk_CUSTOM_hz_enable source clock must be a lower count value or it will reset LOW anyhow.
-//          -- The next states occur at the end of each command or data transfer to the LCD
-//          -- Drop LCD E line - falling edge loads inst/data to LCD controller
-//          --============================================================================--
+//       -- The next states occur at the end of each command or data transfer to the LCD
+//       -- Drop LCD E line - falling edge loads inst/data to LCD controller
+//       --============================================================================--
 			DROP_LCD_E: begin//drop_lcd_e =>
 				LCD_E <= 1'b0;
 				//lcd_blon <= '1';
 				LCD_ON <= 1'b1;
 				STATE <= HOLD;
 			end
-//          -- Hold LCD inst/data valid after falling edge of E line
-//          --====================================================--
+//       -- Hold LCD inst/data valid after falling edge of E line
+//       --====================================================--
 			HOLD: begin//hold =>
 				LCD_ON <= 1'b1;
 				STATE <= NXT_CMD;
-				//lcd_blon <= '1';
 			end
 			default: begin
 				STATE <= INIT1;
