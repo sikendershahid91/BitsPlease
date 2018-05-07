@@ -11,12 +11,12 @@ module ScoreBoard(
 	output reg [31:0] scoreboard_output, 
 	output reg [0:0] scoreboard_parity,
 	output reg [0:0] wren, 
-	output reg [15:0] address 
+	output reg [15:0] address,
+	output reg [15:0] data
 	); 
 
 	//rember two cycle delay on the ram access 
 	reg [1:0] game_state_reg; 
-	reg [15:0] data;
 
 	parameter INIT=1, 
 			  UPDATE=2, // access ram update players score 
@@ -38,7 +38,7 @@ module ScoreBoard(
 					data <= 0;
 					game_state_reg <= game_state;
 					if (game_state_reg === 2'b01) begin
-						score
+						data <= 0; 
 						wren <= 0; 
 						address <= 0; 
 						STATE <= SCOREBARD;

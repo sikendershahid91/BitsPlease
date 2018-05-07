@@ -1,12 +1,9 @@
 
-module LEDMatrixControllerTop(clk, rst, matrixIn, enable, rowOut, colOut, ready);
-	input clk, rst, enable;
-	input [63:0] matrixIn;
+module LEDMatrixControllerTop(clk, rst, rowOut, colOut);
+	input clk, rst;
 
 	output[7:0] rowOut, colOut;
-	output ready;
-
-
+	wire [63:0] matrixIn;
 	wire microsecondTimeout, hundredMicrosecondTimeout, millisecondTimeout, hundredMillisecondTimeout, secondTimeout;
 
 	microsecondTimer microsecondTimer_1(clk, rst, microsecondTimeout);
@@ -15,6 +12,8 @@ module LEDMatrixControllerTop(clk, rst, matrixIn, enable, rowOut, colOut, ready)
 	hundredMillisecondTimer hundredMillisecondTimer_1(millisecondTimeout, clk, rst, hundredMillisecondTimeout);
 	secondTimer secondTimer_1(hundredMillisecondTimeout, clk, rst, secondTimeout);
 
-	LEDMatrixController LEDMatrixController_1(matrixIn, enable, secondTimeout, rowOut, colOut, ready, clk, rst);
+	MockMatrixStream MockMatrixStream_1(hundredMillisecondTimeout, rst, matrixIn);
+
+	LEDMatrixController LEDMatrixController_1(matrixIn, millisecondTimeout, rowOut, colOut, clk, rst);
 
 endmodule

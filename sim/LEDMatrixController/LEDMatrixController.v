@@ -10,12 +10,11 @@ ROW8 = [7:0]
 */
 
 
-module LEDMatrixController(matrixIn, enable, timePulseIn, rowOut, colOut, ready, clk, rst);
+module LEDMatrixController(matrixIn, timePulseIn, rowOut, colOut, clk, rst);
 
 	input [63:0] matrixIn;
-	input clk, rst, enable, timePulseIn;
+	input clk, rst, timePulseIn;
 	output [7:0] rowOut, colOut;
-	output ready;
 
 	reg [3:0] State;
 	reg [3:0] stateCounter;
@@ -29,7 +28,7 @@ module LEDMatrixController(matrixIn, enable, timePulseIn, rowOut, colOut, ready,
 			if(rst == 0)
 				begin//					 1111111111111111111111111111111111111111111111111111111111111111
 					 //					 1010101001010101101010100101010110101010010101011010101001010101
-					savedMatrixIn <= 64'b1111111111111111111111111111111111111111111111111111111111111111;
+					savedMatrixIn <= 64'b0;
 					rowOut <= 8'b0;
 					colOut <= 8'bz;
 					ready <= 1;
@@ -39,9 +38,10 @@ module LEDMatrixController(matrixIn, enable, timePulseIn, rowOut, colOut, ready,
 				end
 			else 
 				begin
-					if(enable == 1 && ready == 1)
+					if(ready == 1)
 						begin
-							//savedMatrixIn <= matrixIn;
+							savedMatrixIn <= matrixIn;
+							ready <= 0;
 						end
 					else
 						begin
@@ -112,7 +112,7 @@ module LEDMatrixController(matrixIn, enable, timePulseIn, rowOut, colOut, ready,
 									end
 								WAIT:
 									begin
-										if(timePulseIn == 1)//some condition to wait set delay
+										if(timePulseIn == 1)
 											begin
 												State <= stateCounter;
 											end
