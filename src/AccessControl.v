@@ -8,8 +8,8 @@
 module AccessControl(
 	input clk, 
 	input rst, 
-	input [16:0] _Data_In, 
-	input [0:0]  _Data_In_Load, 
+	input [17:0] _Data_In, 
+	input [0:0]  _Data_In_Load,
 	output [0:0] _Access_grant); 
 // notes
 // if access grant -0 than led redd 
@@ -24,7 +24,7 @@ module AccessControl(
 	assign Memory_data_wire = (ROM_data_wire ^ RAM_data_wire)?
 								RAM_data_wire:
 								ROM_data_wire;
-
+	 
 	ROMPassword ROM(
 		._Address(Address_Wire), 
 		.clk(clk), 

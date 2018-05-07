@@ -4,7 +4,6 @@ module ProcessControl(
 	input [0:0] clk, 
 	input [0:0] rst, 
 	input [2:0] buttons,
-	input [17:0] switches,
 
 	//feedback signals 
 	input [0:0] access_control_fb, 
@@ -24,7 +23,7 @@ module ProcessControl(
 	output reg [15:0] userid,
 	output reg [1:0]  game_score_select
 	); 
-
+	
 	parameter 
 			  INIT=0, 
 			  ACCESSCONTROL=1,
@@ -46,7 +45,7 @@ module ProcessControl(
 					game_score_select <= 0; 
 					lcd_control <= 0; 
 					led_control <= 0; 
-					userid <= 0; 
+					userid <= 0;  
 					if(buttons[0] == 1) begin
 						STATE <= ACCESSCONTROL; 
 					end
@@ -60,7 +59,6 @@ module ProcessControl(
 					game_score_select <=0; 
 					lcd_control <= 1; 
 					led_control <= 1; 
-					userid <= switches[15:0]; 
 					if(access_control_fb == 1) begin
 						buttons_select <= 1;
 						switches_select <= 0; 

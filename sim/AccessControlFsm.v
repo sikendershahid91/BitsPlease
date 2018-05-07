@@ -3,7 +3,7 @@
 module AccessControlFsm(
 	input [0:0] clk, 
 	input [0:0] rst, 
-	input [16:0] _Data_In, 
+	input [17:0] _Data_In, 
 	input [0:0]  _Data_In_Load, 
 	input [15:0] _Memory_In, 
 	output reg [0:0] Access_Grant, 
@@ -12,7 +12,7 @@ module AccessControlFsm(
 	output reg [15:0] Data_Out);  
 
 	reg [0:0] Invalid_Input_Flag;
-	reg [0:0] Password_Change_Flag; 
+	reg [1:0] Password_Change_Flag; 
 	reg [15:0] Password_User_Reg; 
 	reg [15:0] Password_Memory_Reg;  
 
@@ -75,7 +75,7 @@ module AccessControlFsm(
 				end else if(Invalid_Input_Flag == 1 && Fail_Count == 3) begin
 					State <= ACCESS; 
 					Access_Grant <=0;  
-				end else if(Password_Change_Flag === 1'b1) begin
+				end else if(Password_Change_Flag === 2'b01) begin
 					State <= CHANGE; 
 				end else begin
 					State <= ACCESS; 
