@@ -62,11 +62,12 @@ module ScoreBoard(
 				end
 				SCOREBARD: begin // access score board and output result
 					if(address !== 16'hFFFF) begin
-						scoreboard_output <= ram_data;
+						scoreboard_output <= {address,ram_data};
 						scoreboard_parity <= ~scoreboard_parity; 
 						address <= address + 1'b1;
 						STATE <= DELAY;  
 					end else begin
+						scoreboard_output <= {16'hFFFF,16'hFFFF};
 						STATE <= INIT; 
 					end
 				end
