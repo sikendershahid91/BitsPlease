@@ -48,7 +48,7 @@ module ProcessControl_tb();
 			game_score_select:[%b],\
 			lcd_control:[%b], \
 			led_control:[%b], \
-			userid:[%b]",
+			",
 			$time, 
 			_buttons,
 			_access_control_fb, 
@@ -59,7 +59,6 @@ module ProcessControl_tb();
 			_game_score_select,
 			_lcd_select, 
 			_led_control, 
-			_userID,  
 			_output); 
 
 		clk = 1; rst = 1; 
