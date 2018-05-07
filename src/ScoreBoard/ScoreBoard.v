@@ -11,7 +11,7 @@ module ScoreBoard(
 	output reg [31:0] scoreboard_output, 
 	output reg [0:0] scoreboard_parity,
 	output reg [0:0] wren, 
-	output reg [15:0] address, 
+	output reg [15:0] address 
 	); 
 
 	//rember two cycle delay on the ram access 
@@ -31,7 +31,7 @@ module ScoreBoard(
 			STATE <= INIT;
 		end else begin
 			case(STATE)
-				INIT: 
+				INIT: begin
 					scoreboard_output <= 0; 
 					wren <= 0;  
 					address <= 0; 
