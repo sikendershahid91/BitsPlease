@@ -42,7 +42,7 @@ module AccessControl(
 		.rst(rst), 
 		._Data_In(_Data_In), 
 		._Data_In_Load(_Data_In_Load), 
-		._Memory_Data_In(Memory_data_wire), 
+		._Memory_In(Memory_data_wire), 
 		.Access_Grant(Access_Grant_wire),
 		.Address(Address_Wire), 
 		.wren(wren_wire),
