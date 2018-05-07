@@ -4,7 +4,7 @@ module DisplayScoreMux(
 	input [1:0]  select, 
 	input [31:0] game_data, 
 	input [31:0] score_board_data,
-	output reg[31:0] data); 
+	output reg [31:0] data); 
 	
 	always@(select) begin
 		case(select)
