@@ -17,7 +17,7 @@ module ProcessControl(
 
 	//lcd & LEDs
 	output reg [2:0] lcd_control,
-	output reg [3:0] led_control,  
+	output reg [1:0] led_control,  
 
 	//score & game
 	output reg [15:0] userid,

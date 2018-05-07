@@ -39,15 +39,15 @@ module ProcessControl_tb();
 	end 
 
 	initial begin
-		$monitor("time:[%0t], buttons:[%b], 
-			access_control_fb:[%b],
-			game_fb:[%b], 
-			scoreboard_fb:[%b], 
-			buttons_select:[%b], 
-			switches_select:[%b], 
-			game_score_select:[%b],
-			lcd_control:[%b], 
-			led_control:[%b], 
+		$monitor("time:[%0t], buttons:[%b], \
+			access_control_fb:[%b], \
+			game_fb:[%b], \
+			scoreboard_fb:[%b], \
+			buttons_select:[%b], \
+			switches_select:[%b], \
+			game_score_select:[%b],\
+			lcd_control:[%b], \
+			led_control:[%b], \
 			userid:[%b]",
 			$time, 
 			_buttons,
@@ -59,15 +59,11 @@ module ProcessControl_tb();
 			_game_score_select,
 			_lcd_select, 
 			_led_control, 
-			_userID);  
+			_userID,  
 			_output); 
 
 		clk = 1; rst = 1; 
-		#10 @(posedge clk) 
-		#10 @(posedge clk) 
-		#10 @(posedge clk)
-		#10 @(posedge clk)
-		#10 @(posedge clk)
+//		#10 @(posedge clk) 
 	end
 endmodule 
 
