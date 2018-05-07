@@ -1,8 +1,7 @@
-// ECE 5440 
-// Sikender Shahid 1476
+
 // description: RAM module generated through Quartus
 
-module RAMPassword(
+module RAMScoreboard(
 	clk, 
 	_Address, 
 	_Data_In, 

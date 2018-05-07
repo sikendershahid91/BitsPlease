@@ -1,7 +1,7 @@
 //sikender
 
 module ButtonDecoder(
-	input [1:0] Select,
+	input [2:0] Select,
 	input [2:0] ButtonVector, 
 	output reg [2:0] ButtonVector1, 
 	output reg [2:0] ButtonVector2, 

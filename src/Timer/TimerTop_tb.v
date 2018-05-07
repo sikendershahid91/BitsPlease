@@ -5,7 +5,7 @@ module TimerTop_tb();
 
   wire gLED, rLED;
 
-  TetrisTestTop DUT_TetrisTestTop(clk, rst, rLED, gLED);
+  TimerTop DUT_1s_tb(clk, rst, rLED, gLED);
 
   always begin
     clk = 1;

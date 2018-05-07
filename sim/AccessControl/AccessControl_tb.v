@@ -44,8 +44,8 @@ endmodule
 
 /* 
 changes addition of USERID signal 
-	if access grant is true then spit out user id for rest of the game 
-any time the game logs out the acces control needs to remove access grant
+
+
 */ 
 
 

@@ -4,25 +4,18 @@ module ProcessControl(
 	input [0:0] clk, 
 	input [0:0] rst, 
 	input [2:0] buttons,
-
 	//feedback signals 
 	input [0:0] access_control_fb, 
 	input [0:0] game_fb, 
 	input [0:0] scoreboard_fb, 
-	
 	//hardware signals
 	output reg [2:0] buttons_select,
 	output reg [0:0] switches_select,
+	output reg [1:0]  game_score_select,
 //	output reg [0:0] password_change,
-
 	//lcd & LEDs
 	output reg [2:0] lcd_control,
-	output reg [3:0] led_control,  
-
-	//score & game
-	output reg [15:0] userid,
-	output reg [1:0]  game_score_select
-	); 
+	output reg [1:0] led_control); 
 	
 	parameter 
 			  INIT=0, 
@@ -44,8 +37,7 @@ module ProcessControl(
 					switches_select <= 0; 
 					game_score_select <= 0; 
 					lcd_control <= 0; 
-					led_control <= 0; 
-					userid <= 0;  
+					led_control <= 0;  
 					if(buttons[0] == 1) begin
 						STATE <= ACCESSCONTROL; 
 					end

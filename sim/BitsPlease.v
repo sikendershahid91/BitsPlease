@@ -64,7 +64,6 @@ module BitsPlease(
 		.switches_select(switches_select), 
 		.lcd_control(LCD_select),
 		.led_control(LED),
-		.userid(userid_const), 
 		.game_score_select(score_select));
 
 	/*
