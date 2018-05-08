@@ -1,0 +1,44 @@
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+
+# Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+# File: D:\UH COURSES\ECE 5440\BitsPlease\BitsPlease\doc\LEDMatrixControllerTop.csv
+# Generated on: Tue May 08 07:40:19 2018
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+clk,Input,PIN_Y2,2,B2_N0,PIN_Y2,2.5 V,,,,,
+colOut[7],Output,PIN_AF16,4,B4_N2,PIN_AF16,2.5 V,,,,,
+colOut[6],Output,PIN_AF15,4,B4_N2,PIN_AF15,2.5 V,,,,,
+colOut[5],Output,PIN_AE21,4,B4_N1,PIN_AE21,2.5 V,,,,,
+colOut[4],Output,PIN_AC22,4,B4_N0,PIN_AC22,2.5 V,,,,,
+colOut[3],Output,PIN_AF21,4,B4_N1,PIN_AF21,2.5 V,,,,,
+colOut[2],Output,PIN_AD22,4,B4_N0,PIN_AD22,2.5 V,,,,,
+colOut[1],Output,PIN_AD25,4,B4_N0,PIN_AD25,2.5 V,,,,,
+colOut[0],Output,PIN_AE25,4,B4_N1,PIN_AE25,2.5 V,,,,,
+doneLED,Output,PIN_F19,7,B7_N0,PIN_F19,2.5 V,,,,,
+gLED,Output,PIN_E21,7,B7_N0,PIN_E21,2.5 V,,,,,
+rLED,Output,PIN_G19,7,B7_N2,PIN_G19,2.5 V,,,,,
+rowOut[7],Output,PIN_AC19,4,B4_N0,PIN_AC19,2.5 V,,,,,
+rowOut[6],Output,PIN_AD19,4,B4_N0,PIN_AD19,2.5 V,,,,,
+rowOut[5],Output,PIN_AF24,4,B4_N1,PIN_AF24,2.5 V,,,,,
+rowOut[4],Output,PIN_AF25,4,B4_N1,PIN_AF25,2.5 V,,,,,
+rowOut[3],Output,PIN_AE22,4,B4_N0,PIN_AE22,2.5 V,,,,,
+rowOut[2],Output,PIN_AF22,4,B4_N0,PIN_AF22,2.5 V,,,,,
+rowOut[1],Output,PIN_AG25,4,B4_N1,PIN_AG25,2.5 V,,,,,
+rowOut[0],Output,PIN_AH25,4,B4_N1,PIN_AH25,2.5 V,,,,,
+rst,Input,PIN_M23,6,B6_N2,PIN_M23,2.5 V,,,,,
+startSw,Input,PIN_Y23,5,B5_N2,PIN_Y23,2.5 V,,,,,
+stopBtn,Input,PIN_R24,5,B5_N0,PIN_R24,2.5 V,,,,,
