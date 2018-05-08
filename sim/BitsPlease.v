@@ -42,8 +42,12 @@ module BitsPlease(
 	wire [0:0]  userinput_load; 
 	wire [0:0]  access_grant;
 
+	wire [0:0] game_eog_wire; 
 	wire [0:0] scoreboard_eof_wire; 
-	wire [31:0] score_board_scores; 
+	wire [31:0] score_board_scores;
+
+	wire [31:0] game_score;
+	wire [63:0] game_stream_wire; 
 
 	/*
 
@@ -109,18 +113,16 @@ module BitsPlease(
 
 	//timer top 
 
-
-	wire [31:0] game_score; 
-	GameStacker game(
-		.clk( ),
-		.rst(), 
-		.buttons(), 
-		.userid(),
-		.gamestate(), 
-		.game_eog(),
-		.timer_reconfig_fb(),
-		.game_display(),
-		.game_data());
+	 
+	Game game(
+		.clk(clk),
+		.rst(rst), 
+		.buttons(button_game), 
+		.userid(userid_const),
+		.gamestate(score_select), 
+		.game_eog(game_eog_wire),
+		.game_display(game_stream_wire),
+		.game_data(game_score));
 
 
 	/*
@@ -156,6 +158,7 @@ module BitsPlease(
  	    .LCD_DB(lcd_DB), 
  	    .LCD_ON(lcd_ON));
  
+
  	LEDMatrixControllerTop matrix(
  		.clk(clk),
  		.rst(rst), 
