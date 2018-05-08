@@ -37,13 +37,13 @@ module ScoreBoard(
 					address <= 0; 
 					data <= 0;
 					game_state_reg <= game_state;
-					if (game_state_reg === 2'b01) begin
+					if (game_state_reg === 2'b10) begin
 						data <= 0; 
 						wren <= 0; 
 						address <= 0; 
 						STATE <= SCOREBARD;
 					end
-					else if (game_state_reg === 2'b10) begin
+					else if (game_state_reg === 2'b01) begin
 						data <= score_data;
 						address <= userid;  
 						wren <=1; 
@@ -61,6 +61,9 @@ module ScoreBoard(
 					STATE <= INIT; 
 				end
 				SCOREBARD: begin // access score board and output result
+					address <=0; 
+					data <= 0; 
+					wren <= 0;
 					if(address !== 16'hFFFF) begin
 						scoreboard_output <= {address,ram_data};
 						scoreboard_parity <= ~scoreboard_parity; 

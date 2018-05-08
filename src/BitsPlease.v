@@ -68,6 +68,7 @@ module BitsPlease(
 	process control : main control for the game
 
 	*/  
+	wire [0:0] access_control_rst_wire; 
 	ProcessControl process_control(
 		.clk(clk),
 		.rst(rst),  
@@ -80,7 +81,8 @@ module BitsPlease(
 		.switches_select(switches_select), 
 		.lcd_control(LCD_select),
 		.led_control(LED),
-		.game_score_select(score_select));
+		.game_score_select(score_select),
+		.access_control_reset(access_control_rst_wire));
 
 	/*
 
@@ -90,10 +92,11 @@ module BitsPlease(
 	
 	AccessControl access_control(
 		.clk(clk),
-		.rst(rst), 
+		.rst(access_control_rst_wire), 
 		._Data_In({2'b00,Switches[15:0]}), 
-		._Data_In_Load(userinput_load),
-		._Access_grant(access_grant)); 
+		._Data_In_Load(button_access_control[0]),
+		._Access_grant(access_grant),
+		.user_ID(userid_const)); 
 		 
 	/*
 
@@ -112,7 +115,7 @@ module BitsPlease(
 		.clk(clk),
 		.rst(rst),
 		.buttons(button_scoreboard),
-		.user_id(    ), // needs to come 
+		.user_id(userid_const), // needs to come 
 		.score(game_score),
 		.game_state(score_select),
 		.display_wire(score_board_scores)); 

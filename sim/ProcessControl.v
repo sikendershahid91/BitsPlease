@@ -15,7 +15,9 @@ module ProcessControl(
 //	output reg [0:0] password_change,
 	//lcd & LEDs
 	output reg [2:0] lcd_control,
-	output reg [1:0] led_control); 
+	output reg [1:0] led_control,
+
+	output reg [0:0] access_control_reset); 
 	
 	parameter 
 			  INIT=0, 
@@ -37,7 +39,8 @@ module ProcessControl(
 					switches_select <= 0; 
 					game_score_select <= 0; 
 					lcd_control <= 0; 
-					led_control <= 0;  
+					led_control <= 0; 
+					access_control_reset <= 1;  
 					if(buttons[0] == 1) begin
 						STATE <= ACCESSCONTROL; 
 					end
@@ -81,6 +84,7 @@ module ProcessControl(
 						buttons_select <= 1;
 						game_score_select <=0;  
 						lcd_control <= 2; // display logged out 
+						access_control_reset <= 0; 
 						STATE <= INIT; 
 					end
 					else begin

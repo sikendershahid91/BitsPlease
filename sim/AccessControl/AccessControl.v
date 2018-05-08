@@ -10,7 +10,8 @@ module AccessControl(
 	input rst, 
 	input [17:0] _Data_In, 
 	input [0:0]  _Data_In_Load,
-	output [0:0] _Access_grant); 
+	output [0:0] _Access_grant,
+	output [15:0] user_ID); 
 // notes
 // if access grant -0 than led redd 
 	
@@ -49,5 +50,6 @@ module AccessControl(
 		.Data_Out(FSM_data_wire));  
 
 	assign _Access_grant = Access_Grant_wire;  // need to switch off when logout 
+	assign user_ID = Address_Wire;
 	
 endmodule 
