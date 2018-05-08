@@ -5,11 +5,18 @@ module BitsPlease(
 	input [0:0]  rst,
 	input [2:0]  PushButtons, 
 	input [17:0] ToggleSwitch, 
-	output [1:0] LED // LED[0] = red led LED[1] = green led
+	output reg [1:0] LED, // LED[0] = red led LED[1] = green led
 
 	//outputs for  7segmentdisplay, 
 	//outputs for  matrix 
-	//outputs for  LCD, 
+	output [7:0] matrix_row,
+	output [7:0] matrix_col,
+	//outputs for  LCD,
+	output reg lcd_RS,
+	output reg lcd_RW,
+	output reg lcd_E,
+	output reg [7:0 ]lcd_DB,
+	output reg lcd_ON
 	); 
 
 	wire [2:0]  push_buttons_shaped; 
@@ -81,7 +88,7 @@ module BitsPlease(
 		 
 	/*
 
-	game modules : "tetris"
+	game modules : "stack"
 
 	*/
 	wire [31:0] game_score; 
@@ -96,14 +103,34 @@ module BitsPlease(
 
 	/* 
 
-	display
+	display:
+		LCD
+		8x8 MATRIX
+		7 segment display
 
 	*/
+	FPGA_2_LCD lcd_display(
+		.CLK(clk),
+		.RST(rst),
+		.LCD_CHAR_ARRAY(LCD_select),
+		.LCD_RS(lcd_RS),
+		.LCD_RW(lcd_RW),
+		.LCD_E(lcd_E),
+	    .LCD_DB(lcd_DB), 
+	    .LCD_ON(lcd_ON));
+
+	LEDMatrixControllerTop matrix(
+		.clk(clk),
+		.rst(rst), 
+		.matrixIn(),  //input stream from game
+		.rowOut(matrix_row),
+		.colOut(matrix_col)); 
+
 	wire [31:0] display_wire;
 	DisplayScoreMux mux(
 		score_select, 
-		game_score, 
-		score_board_scores, 
-		display_wire); 
+		game_score, // input stream from game
+		score_board_scores // input stream from scoreboard, 
+		display_wire);  // output to 7 segment display
 		
 endmodule 
