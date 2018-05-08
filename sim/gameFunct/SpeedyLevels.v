@@ -1,20 +1,20 @@
-module SpeedyLevels(stacked, inSpd, shorterTime);
+module SpeedyLevels(clk, stacked, shorterTime);
+  input clk;
   input stacked;//check if blocks were stacked correctly | boolean T/F
-  input [7:0] inSpd; //current speed;
   output [7:0] shorterTime; //spd increase == shorter time
-
   reg [7:0] tempTime;
   reg [7:0] setupTime;
   reg state;
-  //get height
-  //higher height, larger divisor;
-  always @ (posedge stacked) begin
+
+  always @ (posedge clk) begin
     case (state)
       1: begin
-        tempTime <= tempTime >> 1;
+        if(stacked == 1) begin
+          tempTime <= tempTime >> 1;
+        end
       end
       default: begin
-        tempTime <= inSpd;
+        tempTime <= 200;
         state <= 1;
       end
     endcase

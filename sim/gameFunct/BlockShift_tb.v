@@ -1,10 +1,12 @@
 module BlockShift_tb();
   reg [7:0] blockLoc;
+  reg start;
   reg stopBtn;
   reg adjClkPulse;
   wire [7:0] newBlockLoc;
+  wire startNext;
 
-  BlockShift DUT_BS(blockLoc, stopBtn, adjClkPulse, newBlockLoc);
+  BlockShift DUT_BS(start, blockLoc, stopBtn, adjClkPulse, newBlockLoc, startNext);
 
   always begin
     adjClkPulse = 1;
@@ -15,6 +17,10 @@ module BlockShift_tb();
 
   initial begin
     blockLoc = 8'b10000000;
+    #20;
+    start = 0;
+    #100;
+    start = 1;
     #800;
     stopBtn = 1;
     #200;

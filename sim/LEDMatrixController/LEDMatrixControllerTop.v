@@ -1,9 +1,8 @@
 
-module LEDMatrixControllerTop(clk, rst, rowOut, colOut);
+module LEDMatrixControllerTop(clk, rst, matrixIn, rowOut, colOut);
 	input clk, rst;
-
 	output[7:0] rowOut, colOut;
-	wire [63:0] matrixIn;
+	input [63:0] matrixIn;
 	wire microsecondTimeout, hundredMicrosecondTimeout, millisecondTimeout, hundredMillisecondTimeout, secondTimeout;
 
 	microsecondTimer microsecondTimer_1(clk, rst, microsecondTimeout);
@@ -12,8 +11,10 @@ module LEDMatrixControllerTop(clk, rst, rowOut, colOut);
 	hundredMillisecondTimer hundredMillisecondTimer_1(millisecondTimeout, clk, rst, hundredMillisecondTimeout);
 	secondTimer secondTimer_1(hundredMillisecondTimeout, clk, rst, secondTimeout);
 
-	MockMatrixStream MockMatrixStream_1(hundredMillisecondTimeout, rst, matrixIn);
+	//MockMatrixStream MockMatrixStream_1(hundredMillisecondTimeout, rst, matrixIn);
 
 	LEDMatrixController LEDMatrixController_1(matrixIn, millisecondTimeout, rowOut, colOut, clk, rst);
 
 endmodule
+
+//sikender -  might face syn problems with the game 
