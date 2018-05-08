@@ -1,19 +1,24 @@
 `timescale 1ns/100ps
 
 module SpeedyLevels_tb ();
+  reg clk;
   reg stacked;
-  reg [7:0] inSpd;
   wire [7:0] shorterTime;
 
-  SpeedyLevels DUT_SL(stacked, inSpd, shorterTime);
+  SpeedyLevels DUT_SL(clk, stacked, shorterTime);
+
+  always begin
+    clk = 0;
+    #2;
+    clk = 1;
+    #2;
+  end
 
   always begin
     stacked = 0;
-    #2;
+    #5;
     stacked = 1;
-    #2;
+    #5;
   end
-  initial begin
-    inSpd = 200;
-  end
+
 endmodule // SpeedyLevels
