@@ -107,8 +107,15 @@ module BitsPlease(
 	score board: 
 
 	*/
-	wire [31:0] score_board_scores; // will be larger 
-
+	wire [31:0] score_board_scores;  
+	ScoreBoardMain score_board(
+		.clk(clk),
+		.rst(rst),
+		.buttons(button_scoreboard),
+		.user_id(    ), // needs to come 
+		.score(game_score),
+		.game_state(score_select),
+		.display_wire(score_board_scores)); 
 
  	/* 
  
