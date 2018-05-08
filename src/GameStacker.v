@@ -68,6 +68,7 @@ module GameStacker(
 						if(lineIndex == 0) begin
 							stackPos <= xCount;
 						end
+						State <= SHIFT; 
 					end
 				end
 				PLACE: begin
