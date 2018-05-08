@@ -6,7 +6,6 @@ module TetrisTestTop(startSw, stacked, clk, rstBtn, stopBtn, rLED, doneLED, outp
   // reg [7:0] segOut[7:0];
   output rLED;
   output doneLED;
-  output [63:0] outputStream;
 
   wire [7:0] startNext;
   wire [7:0] newBlockLoc[7:0];
@@ -34,5 +33,5 @@ module TetrisTestTop(startSw, stacked, clk, rstBtn, stopBtn, rLED, doneLED, outp
   BlockShift BS6(startNext[5], 8'b10000000, stopBtn, endTimer, newBlockLoc[6], startNext[6]);
   BlockShift BS7(startNext[6], 8'b10000000, stopBtn, endTimer, newBlockLoc[7], doneLED);
 
-  assign outputStream = {newBlockLoc[0], newBlockLoc[1], newBlockLoc[2], newBlockLoc[3], newBlockLoc[4], newBlockLoc[5], newBlockLoc[6], newBlockLoc[7]};
+  assign outputStream = {newBlockLoc[0], newBlockLoc[1], newBlockLoc[2], newBlockLoc[3], newBlockLoc[4], newBlockLoc[5], newBlockLoc[6], newBlockLoc[7]}
 endmodule

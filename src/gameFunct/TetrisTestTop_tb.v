@@ -1,12 +1,15 @@
 `timescale 1ns / 100ps
 
 module TetrisTestTop_tb();
+  reg start;
+  reg stacked;
   reg clk, rstBtn;
   reg stopBtn;
-  wire gLED, rLED;
-  wire [7:0] segOut;
+  wire rLED;
+  wire doneLED;
+  wire [63:0] outputStream;
 
-  TetrisTestTop DUT_TTT(clk, rstBtn, stopBtn, rLED, gLED, segOut);
+  TetrisTestTop DUT_TTT(start, stacked, clk, rstBtn, stopBtn, rLED, doneLED, outputStream);
 
   always begin
     clk = 1;
@@ -22,6 +25,7 @@ module TetrisTestTop_tb();
     #40;
     rstBtn = 1;
     #40;
-    stopBtn = 0;
   end
+
+
 endmodule
