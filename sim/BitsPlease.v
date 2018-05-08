@@ -7,16 +7,25 @@ module BitsPlease(
 	input [17:0] ToggleSwitch, 
 	output reg [1:0] LED, // LED[0] = red led LED[1] = green led
 
-	//outputs for  7segmentdisplay, 
+	//outputs for  7segmentdisplay,
+	output [6:0] display_0;
+	output [6:0] display_1;
+	output [6:0] display_2;
+	output [6:0] display_3;
+	output [6:0] display_4;
+	output [6:0] display_5;
+	output [6:0] display_6;
+	output [6:0] display_7;
+
 	//outputs for  matrix 
 	output [7:0] matrix_row,
 	output [7:0] matrix_col,
 	//outputs for  LCD,
-	output reg lcd_RS,
-	output reg lcd_RW,
-	output reg lcd_E,
-	output reg [7:0 ]lcd_DB,
-	output reg lcd_ON
+	output lcd_RS,
+	output lcd_RW,
+	output lcd_E,
+	output [7:0 ]lcd_DB,
+	output lcd_ON
 	); 
 
 	wire [2:0]  push_buttons_shaped; 
@@ -132,5 +141,17 @@ module BitsPlease(
 		game_score, // input stream from game
 		score_board_scores // input stream from scoreboard, 
 		display_wire);  // output to 7 segment display
-		
+
+	Display7Seg seven_seg(
+		.userID_score(display_wire),
+		.display0(display_0),
+		.display1(display_1),
+		.display2(display_2),
+		.display3(display_3),
+		.display4(display_4),
+		.display5(display_5),
+		.display6(display_6),
+		.display7(display_7));
+
+
 endmodule 

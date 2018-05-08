@@ -16,3 +16,5 @@ module LEDMatrixControllerTop(clk, rst, matrixIn, rowOut, colOut);
 	LEDMatrixController LEDMatrixController_1(matrixIn, millisecondTimeout, rowOut, colOut, clk, rst);
 
 endmodule
+
+//sikender -  might face syn problems with the game 
