@@ -92,7 +92,6 @@ module BitsPlease(
 	access control : password and login 
 
 	*/
-	
 	AccessControl access_control(
 		.clk(clk),
 		.rst(access_control_rst_wire), 
@@ -106,14 +105,29 @@ module BitsPlease(
 	game modules : "tetris"
 
 	*/
+
+
+	//timer top 
+
+
 	wire [31:0] game_score; 
+	GameStacker game(
+		.clk( ),
+		.rst(), 
+		.buttons(), 
+		.userid(),
+		.gamestate(), 
+		.game_eog(),
+		.timer_reconfig_fb(),
+		.game_display(),
+		.game_data());
+
 
 	/*
 	
 	score board: 
 
 	*/
-	 
 	ScoreBoardMain score_board(
 		.clk(clk),
 		.rst(rst),
