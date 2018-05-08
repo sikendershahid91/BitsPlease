@@ -42,6 +42,9 @@ module BitsPlease(
 	wire [0:0]  userinput_load; 
 	wire [0:0]  access_grant;
 
+	wire [0:0] scoreboard_eof_wire; 
+	wire [31:0] score_board_scores; 
+
 	/*
 
 	buttons : shaped and decoded by the process control
@@ -76,7 +79,7 @@ module BitsPlease(
 		.buttons(button_process_control), 
 		.access_control_fb(access_grant), 
 		.game_fb(/*  */), 
-		.scoreboard_fb(/*  */), 
+		.scoreboard_fb(scoreboard_eof_wire), 
 		.buttons_select(button_select),
 		.switches_select(switches_select), 
 		.lcd_control(LCD_select),
@@ -110,7 +113,7 @@ module BitsPlease(
 	score board: 
 
 	*/
-	wire [31:0] score_board_scores;  
+	 
 	ScoreBoardMain score_board(
 		.clk(clk),
 		.rst(rst),
@@ -118,6 +121,7 @@ module BitsPlease(
 		.user_id(userid_const), // needs to come 
 		.score(game_score),
 		.game_state(score_select),
+		.scoreboard_eof(scoreboard_eof_wire),
 		.display_wire(score_board_scores)); 
 
  	/* 

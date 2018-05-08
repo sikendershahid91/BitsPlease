@@ -7,6 +7,7 @@ module ScoreBoardMain(
 	input [15:0] user_id,
 	input [15:0] score, 
 	input [1:0] game_state,
+	output [0:0] scoreboard_eof,
 	output [31:0] display_data); 
 
 	wire [0:0] wren_wire; 
@@ -43,6 +44,7 @@ module ScoreBoardMain(
 		.data(scoreboard_data),
 		.buttons(buttons),
 		.parity_toggle(parity_wire),
+		.scoreboard_eof(scoreboard_eof),
 		.userid_score_output(display_data)); 
 
 endmodule

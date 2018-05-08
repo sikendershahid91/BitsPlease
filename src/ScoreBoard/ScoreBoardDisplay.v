@@ -7,6 +7,7 @@ module ScoreBoardDisplay(
 	input [31:0] data,
 	input [2:0] buttons, 
 	input [0:0] parity_toggle,
+	output reg [0:0] scoreboard_eof,
 	output reg [31:0] userid_score_output); 
 	
 
@@ -43,6 +44,7 @@ module ScoreBoardDisplay(
 			case(State)
 				INIT: begin
 					count <= 0; 
+					scoreboard_eof <= 0;
 					scoreboard[0] <= 31'd0; 
 					scoreboard[1] <= 31'd0;
 					scoreboard[2] <= 31'd0;
@@ -60,9 +62,11 @@ module ScoreBoardDisplay(
 					if(buttons[0] == 1) begin
 						count <=count +1;
 					end else if(count !== 2'b11) begin
+						scoreboard_eof <= 0; 
 						userid_score_output <= scoreboard[count];
 						State <= DISPLAY; 
 					end else begin
+						scoreboard_eof <= 1; 
 						userid_score_output <= 0;
 						State <= INIT;
 					end
