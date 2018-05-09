@@ -82,7 +82,7 @@ module BitsPlease(
 //		.switches(Switches),
 		.buttons(button_process_control), 
 		.access_control_fb(access_grant), 
-		.game_fb(/*  */), 
+		.game_fb(game_eog_wire), 
 		.scoreboard_fb(scoreboard_eof_wire), 
 		.buttons_select(button_select),
 		.switches_select(switches_select), 
