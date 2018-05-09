@@ -18,7 +18,7 @@ reg [4:0] char_count;
 
 wire [7:0] string1 [31:0];wire [7:0] string2 [31:0];wire [7:0] string3 [31:0];
 wire [7:0] string4 [31:0];wire [7:0] string5 [31:0];wire [7:0] string6 [31:0];
-wire [7:0] string [31:0];
+wire [7:0] string7 [31:0];wire [7:0] string [31:0];
 //-----------------------Hex Characters Used----------------------
 reg [7:0] W = 8'h57;reg [7:0] E = 8'h45;reg [7:0] L = 8'h4C;reg [7:0] C = 8'h43;
 reg [7:0] O = 8'h4F;reg [7:0] M = 8'h4D;
@@ -39,14 +39,14 @@ assign string1[5] = M;assign string1[13] = SP;assign string1[21] = SP;assign str
 assign string1[6] = E;assign string1[14] = SP;assign string1[22] = O;assign string1[30] = SP;
 assign string1[7] = EX;assign string1[15] = SP;assign string1[23] = R;assign string1[31] = SP;
 // string 2
-assign string2[0] = W;assign string2[8] = SP;assign string2[16] = E;assign string2[24] = V;
-assign string2[1] = E;assign string2[9] = SP;assign string2[17] = N;assign string2[25] = A;
-assign string2[2] = L;assign string2[10] = SP;assign string2[18] = T;assign string2[26] = L;
-assign string2[3] = C;assign string2[11] = SP;assign string2[19] = E;assign string2[27] = I;
-assign string2[4] = O;assign string2[12] = SP;assign string2[20] = R;assign string2[28] = D;
-assign string2[5] = M;assign string2[13] = SP;assign string2[21] = SP;assign string2[29] = SP;
-assign string2[6] = E;assign string2[14] = SP;assign string2[22] = A;assign string2[30] = I;
-assign string2[7] = EX;assign string2[15] = SP;assign string2[23] = SP;assign string2[31] = D;
+assign string2[0] = E;assign string2[8] = V;assign string2[16] = A;assign string2[24] = W;
+assign string2[1] = N;assign string2[9] = A;assign string2[17] = N;assign string2[25] = O;
+assign string2[2] = T;assign string2[10] = L;assign string2[18] = D;assign string2[26] = R;
+assign string2[3] = E;assign string2[11] = I;assign string2[19] = SP;assign string2[27] = D;
+assign string2[4] = R;assign string2[12] = D;assign string2[20] = P;assign string2[28] = SP;
+assign string2[5] = SP;assign string2[13] = SP;assign string2[21] = A;assign string2[29] = SP;
+assign string2[6] = A;assign string2[14] = I;assign string2[22] = S;assign string2[30] = SP;
+assign string2[7] = SP;assign string2[15] = D;assign string2[23] = S;assign string2[31] = SP;
 // string 3
 assign string3[0] = W;assign string3[8] = SP;assign string3[16] = E;assign string3[24] = P;
 assign string3[1] = E;assign string3[9] = SP;assign string3[17] = N;assign string3[25] = A;
@@ -83,6 +83,15 @@ assign string6[4] = E;assign string6[12] = E;assign string6[20] = _3;assign stri
 assign string6[5] = SP;assign string6[13] = SP;assign string6[21] = SP;assign string6[29] = SP;
 assign string6[6] = A;assign string6[14] = SP;assign string6[22] = S;assign string6[30] = SP;
 assign string6[7] = R;assign string6[15] = SP;assign string6[23] = C;assign string6[31] = SP;
+//string 7 "goodbye"
+assign string7[0] = SP;assign string7[8] = SP;assign string7[16] = G;assign string7[24] = B;
+assign string7[1] = G;assign string7[9] = B;assign string7[17] = SP;assign string7[25] = SP;
+assign string7[2] = SP;assign string7[10] = SP;assign string7[18] = O;assign string7[26] = Y;
+assign string7[3] = O;assign string7[11] = Y;assign string7[19] = SP;assign string7[27] = SP;
+assign string7[4] = SP;assign string7[12] = SP;assign string7[20] = O;assign string7[28] = E;
+assign string7[5] = O;assign string7[13] = E;assign string7[21] = SP;assign string7[29] = SP;
+assign string7[6] = SP;assign string7[14] = SP;assign string7[22] = D;assign string7[30] = EX;
+assign string7[7] = D;assign string7[15] = EX;assign string7[23] = SP;assign string7[31] = SP;
 // string
 assign string[0] = SP;assign string[8] = A;assign string[16] = SP;assign string[24] = P;
 assign string[1] = SP;assign string[9] = M;assign string[17] = SP;assign string[25] = L;
@@ -105,7 +114,7 @@ CLOCK=24MHz ==> 41.667ns
 //===============================================================================================
 //------------------------------___State Interface Messages_-------------------------------------
 //===============================================================================================
-parameter WELCOME = 4'b0000, IDEN = 4'b0001, PWRD = 4'b0010, OPTIONS = 4'b0011, GAME = 4'b0100, SCORES = 4'b0101;
+parameter WELCOME = 4'b0000, IDEN = 4'b0001, PWRD = 4'b0010, OPTIONS = 4'b0011, GAME = 4'b0100, SCORES = 4'b0101, BYE = 4'b0110;
 parameter INIT1 = 0, INIT2 = 1, INIT3 = 2, FCNSET = 3, DISPOFF = 4, DISPON = 5, 
 	DISPCLR = 6, MODESET = 7, DROP_LCD_E = 8, HOLD = 9, LINE2 = 10, PRINT_STRING = 11, RETURN = 12;
 
@@ -113,20 +122,20 @@ parameter INIT1 = 0, INIT2 = 1, INIT3 = 2, FCNSET = 3, DISPOFF = 4, DISPON = 5,
 //--======================= 400HZ CLOCK SIGNAL ============================--  
 //--=====================================================================-- 
 always @(posedge CLK) begin
-		if (RST == 0) begin
-			clk_count_400hz <= 20'h00000;                     //x"00000";
-            clk_400hz_enable <= 1'b0;
-		end
-      else begin
-            if (clk_count_400hz <= 20'h0F424) begin    // x"0F424"        
-                   clk_count_400hz <= clk_count_400hz + 1;                                   
-                   clk_400hz_enable <= 1'b0; 
-				end            
-            else begin
-                   clk_count_400hz <= 20'h00000;                      //x"00000";
-                   clk_400hz_enable <= 1'b1;
-            end 
-      end 
+	if (RST == 0) begin
+		clk_count_400hz <= 20'h00000;              //x"00000";
+        clk_400hz_enable <= 1'b0;
+	end
+    else begin
+        if (clk_count_400hz <= 20'h0F424) begin    // x"0F424"        
+            clk_count_400hz <= clk_count_400hz + 1;                                   
+            clk_400hz_enable <= 1'b0; 
+		end            
+        else begin
+            clk_count_400hz <= 20'h00000;          //x"00000";
+            clk_400hz_enable <= 1'b1;
+        end 
+    end 
 end
 //--==================================================================--   
 
@@ -134,42 +143,39 @@ end
 //---------------------------------------------------------------------------------------------------------------
 always @(LCD_CHAR_ARRAY) begin 
 //-- get next character in display string based on the LCD_CHAR_ARRAY (switches or Multiplexer)
-
      case (LCD_CHAR_ARRAY)
-          
 //          -- Welcome message
 		WELCOME: begin 
-			//  char_cnt <= char_count;
 			next_char <= string1[char_count];
-            //next_char <= lcd_display_string_01[char_count];
 		end
-		// ENTER A VALID ID
+		// ENTER A VALID ID AND PASSWORD
 		IDEN: begin 
-			//  char_cnt <= char_count;
             next_char <= string2[char_count];
 		end
-		// ENTER A VALID PASSWORD
+		// ENTER A VALID PASSWORD *not being used by ProcessControl
 		PWRD: begin 
-			//  char_cnt <= char_count;
             next_char <= string3[char_count];
 		end
 		// PLAY? QUIT? SCORES?
 		OPTIONS: begin 
-			//  char_cnt <= char_count;
             next_char <= string4[char_count];
 		end
 		// GAME IN PROGRESS
 		GAME: begin 
-			//  char_cnt <= char_count;
-            next_char <= string5[char_count];
+			next_char <= string5[char_count];
 		end
 		// (DISPLAY TOP 3)
 		SCORES: begin 
-			//  char_cnt <= char_count;
             next_char <= string6[char_count];
 		end
-		default: // TEAM NAME
-				next_char <= string[char_count];
+		// goodbye message on "logout"
+		BYE: begin
+			next_char <= string7[char_count];
+		end
+		// TEAM NAME
+		default: begin
+			next_char <= string[char_count];
+		end
 	endcase 
 end 
 
@@ -191,7 +197,7 @@ always @(posedge CLK) begin
 		if (clk_400hz_enable == 1'b1) begin
 		case(STATE)
 //--======================= INITIALIZATION START ============================--
-		   INIT1: begin//reset1 =>
+		    INIT1: begin//reset1 =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -200,7 +206,7 @@ always @(posedge CLK) begin
 				STATE <= DROP_LCD_E;
 				NXT_CMD <= INIT2;
 			end
-		   INIT2: begin//reset2 =>
+		    INIT2: begin//reset2 =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -218,7 +224,7 @@ always @(posedge CLK) begin
 			end
 //         -- Function Set
 //         --==============--
-		   FCNSET: begin//func_set =>                
+		    FCNSET: begin//func_set =>                
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -228,7 +234,7 @@ always @(posedge CLK) begin
 			end
 //         -- Turn off Display
 //         --==============-- 
-		   DISPOFF: begin//display_off =>
+		    DISPOFF: begin//display_off =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -238,7 +244,7 @@ always @(posedge CLK) begin
 			end
 //         -- Clear Display 
 //         --==============--
-		   DISPCLR: begin//display_clear =>
+		    DISPCLR: begin//display_clear =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -248,7 +254,7 @@ always @(posedge CLK) begin
 			end
 //         -- Turn on Display and Turn off cursor
 //         --===================================--
-		   DISPON: begin//display_on =>
+		    DISPON: begin//display_on =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -258,7 +264,7 @@ always @(posedge CLK) begin
 			end
 //         -- Set write mode to auto increment address and move cursor to the right
 //         --====================================================================--
-		   MODESET: begin//mode_set =>
+		    MODESET: begin//mode_set =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -268,17 +274,15 @@ always @(posedge CLK) begin
 			end
 			PRINT_STRING: begin //when print_string =>          
             	STATE <= DROP_LCD_E;
-               LCD_E <= 1'b1;
-               LCD_RS <= 1'b1;
-               LCD_RW <= 1'b0;
+                LCD_E <= 1'b1;
+                LCD_RS <= 1'b1;
+                LCD_RW <= 1'b0;
 					
-					LCD_DB <= next_char;
-				
-//------------------CHAR SEQUENCE TO PRINT-------------------------
+					LCD_DB <= next_char; // prints character of string sequence
+
+                STATE <= DROP_LCD_E; 
                           
-                 STATE <= DROP_LCD_E; 
-                          
-                 //-- Loop to send out 32 characters to LCD Display (16 by 2 lines)
+               //-- Loop to send out 32 characters to LCD Display (16 by 2 lines)
                if ((char_count < 8'b00011111) && (next_char != 8'hFE)) begin
                  	char_count <= char_count + 1'b1;  
 					end
@@ -299,7 +303,7 @@ always @(posedge CLK) begin
 			end	
 //			-- Set write address to line 2 character 1
 //		   --======================================--
-		   LINE2: begin// line2 =>
+		    LINE2: begin// line2 =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -309,7 +313,7 @@ always @(posedge CLK) begin
 			end
 //		   -- Return write address to first character position on line 1
 //		   --=========================================================--
-		   RETURN: begin // return_home =>
+		    RETURN: begin // return_home =>
 				LCD_E <= 1'b1;
 				LCD_RS <= 1'b0;
 				LCD_RW <= 1'b0;
@@ -317,13 +321,12 @@ always @(posedge CLK) begin
 				STATE <= DROP_LCD_E;
 				NXT_CMD <= PRINT_STRING; 
 			end
-//			-- lcd_e will match clk_CUSTOM_hz_enable line when instructed to go LOW, however, if the clk_CUSTOM_hz_enable source clock must be a lower count value or it will reset LOW anyhow.
+//		 -- lcd_e will match clk_CUSTOM_hz_enable line when instructed to go LOW, however, if the clk_CUSTOM_hz_enable source clock must be a lower count value or it will reset LOW anyhow.
 //       -- The next states occur at the end of each command or data transfer to the LCD
 //       -- Drop LCD E line - falling edge loads inst/data to LCD controller
 //       --============================================================================--
 			DROP_LCD_E: begin//drop_lcd_e =>
 				LCD_E <= 1'b0;
-				//lcd_blon <= '1';
 				LCD_ON <= 1'b1;
 				STATE <= HOLD;
 			end

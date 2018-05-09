@@ -38,7 +38,7 @@ module ProcessControl(
 					buttons_select <= 1;
 					switches_select <= 0; 
 					game_score_select <= 0; 
-					lcd_control <= 0; 
+					lcd_control <= 0; // welcome! Login or Quit?
 					led_control <= 0; 
 					access_control_reset <= 1;  
 					if(buttons[0] == 1) begin
@@ -52,18 +52,18 @@ module ProcessControl(
 					buttons_select <= 2;
 					switches_select <= 1; 
 					game_score_select <=0; 
-					lcd_control <= 1; 
+					lcd_control <= 1; // enter a valid id and password
 					led_control <= 1; 
 					if(access_control_fb == 1) begin
 						buttons_select <= 1;
 						switches_select <= 0; 
 						game_score_select <=0;  
-						lcd_control <= 2; 
+						lcd_control <= 3; // play? quit? see scores?
 						led_control <= 2; // green
 						STATE <= TRANSITION;
 					end else begin
 						led_control <= 1; 
-						lcd_control <= 2; // display invalid password
+						//lcd_control <= 2; // display invalid password
 						STATE <= ACCESSCONTROL;
 					end
 				end
@@ -71,19 +71,19 @@ module ProcessControl(
 					if(buttons[2] == 1) begin
 						buttons_select <= 3; 
 						game_score_select <=1;  
-						lcd_control <= 2; // display play game
+						lcd_control <= 4; // display play game "try to get the high score" - message
 						STATE <= GAME;
 					end
 					else if(buttons[1] == 1) begin
 						buttons_select <= 4;
 						game_score_select <=2;  
-						lcd_control <= 2; // display see see scores
+						lcd_control <= 5; // display see see scores
 						STATE <= SCOREBOARD; 
 					end
 					else if(buttons[0] == 1) begin
 						buttons_select <= 1;
 						game_score_select <=0;  
-						lcd_control <= 2; // display logged out 
+						lcd_control <= 6; // display logged out 
 						access_control_reset <= 0; 
 						STATE <= INIT; 
 					end

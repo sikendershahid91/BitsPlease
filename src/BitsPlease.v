@@ -79,7 +79,6 @@ module BitsPlease(
 	ProcessControl process_control(
 		.clk(clk),
 		.rst(rst),  
-//		.switches(Switches),
 		.buttons(button_process_control), 
 		.access_control_fb(access_grant), 
 		.game_fb(game_eog_wire), 
