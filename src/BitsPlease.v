@@ -25,7 +25,8 @@ module BitsPlease(
 	output lcd_RW,
 	output lcd_E,
 	output [7:0 ]lcd_DB,
-	output lcd_ON
+	output lcd_ON,
+	output [1:0] LED_pulses
 	); 
 
 	wire [2:0]  push_buttons_shaped; 
@@ -156,12 +157,15 @@ module BitsPlease(
  	    .LCD_ON(lcd_ON));
  
 
- 	// LEDMatrixControllerTop matrix(
- 	// 	.clk(clk),
- 	// 	.rst(rst), 
- 	// 	.matrixIn(game_stream_wire),  //input stream from game
- 	// 	.rowOut(matrix_row),
-  //       .colOut(matrix_col)); 
+ 	LEDMatrixControllerTop matrix(
+ 		.clk(clk), 
+ 		.rst(rst),
+ 		.start(score_select[0]),
+ 		.stopBtn(button_game[0]),
+ 		.rowOut(matrix_row),
+ 		.colOut(matrix_col),
+ 		.gLED(LED_pulses[0]),
+ 		.doneLED(LED_pulses[1])); 
 
 	wire [31:0] display_wire;
 	DisplayScoreMux mux(
