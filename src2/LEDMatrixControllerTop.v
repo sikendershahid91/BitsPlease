@@ -1,8 +1,8 @@
 
-module LEDMatrixControllerTop(startSw, stopBtn, clk, rst, rowOut, colOut, rLED, gLED, doneLED);
+module LEDMatrixControllerTop(start, stopBtn, clk, rst, rowOut, colOut, gLED, doneLED);
 	input clk, rst;
 	input stopBtn;
-	input startSw;
+	input start;
 
 	output[7:0] rowOut, colOut;
 	wire [63:0] matrixIn;
@@ -13,7 +13,7 @@ module LEDMatrixControllerTop(startSw, stopBtn, clk, rst, rowOut, colOut, rLED, 
 	wire pulseOnems;
 	wire pulseFifthS;
 	wire [7:0] segOut;
-	output gLED, rLED, doneLED;
+	output gLED, doneLED;
 
 	wire [7:0] startNext;
 
@@ -26,15 +26,15 @@ module LEDMatrixControllerTop(startSw, stopBtn, clk, rst, rowOut, colOut, rLED, 
 //	MockMatrixStream MockMatrixStream_1(hundredMillisecondTimeout, rst, matrixIn);
 
 	LEDMatrixController LEDMatrixController_1(matrixIn, millisecondTimeout, rowOut, colOut, clk, rst);
-	
+
 	LFSRTimer_005_ms short005ms(clk, rst, pulseOut);
-	One_mSecondTimer one_ms(pulseOut, pulseOnems, rLED);
+	One_mSecondTimer one_ms(pulseOut, pulseOnems);
 
 	reconfigTmr8B rTmrfifthSec(pulseOnems, 200, pulseFifthS);
 	reconfigTmr8B rTmrOneSec(pulseFifthS, 5, gLED);
 
 //	BlockShift BS1(startSw, stopBtn, gLED, segOut);
-	BlockShift BS0(startSw, 0, stopBtn, gLED, newBlockLoc[0], startNext[0]);
+	BlockShift BS0(start, 0, stopBtn, gLED, newBlockLoc[0], startNext[0]);
 	BlockShift BS1(startNext[0], newBlockLoc[0], stopBtn, gLED, newBlockLoc[1], startNext[1]);
 	BlockShift BS2(startNext[1], newBlockLoc[1], stopBtn, gLED, newBlockLoc[2], startNext[2]);
 	BlockShift BS3(startNext[2], newBlockLoc[2], stopBtn, gLED, newBlockLoc[3], startNext[3]);
