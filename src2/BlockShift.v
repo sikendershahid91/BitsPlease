@@ -24,7 +24,7 @@ module BlockShift(startSw, prev, stopBtn, adjClkPulse, newBlockLoc, next);
 				if(stopBtn == 0) begin
 					state <= s_pause;
 				end
-				else begin
+				else begin 
 					if(direction == 0) begin
 					xCount <= xCount + 1;
 					tempBlock <= tempBlock>> 1;
@@ -74,6 +74,6 @@ module BlockShift(startSw, prev, stopBtn, adjClkPulse, newBlockLoc, next);
 			next <= 0;
 		end
 	end
-
+	
 	assign newBlockLoc = tempBlock;
 endmodule

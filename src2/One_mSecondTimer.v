@@ -1,10 +1,8 @@
 
-module One_mSecondTimer(pulseClk, pulseOnemS, LED);
+module One_mSecondTimer(pulseClk, pulseOnemS);
   input pulseClk;
   output pulseOnemS;
-  output LED;
 
-  reg LEDon;
   reg pulse;
   reg [7:0] counter;
 
@@ -21,12 +19,10 @@ module One_mSecondTimer(pulseClk, pulseOnemS, LED);
         s_count: begin
           if(counter >= 200) begin
             pulse <= 1;
-            LEDon <= 0;
             state <= s_init;
           end
           else begin
             pulse <= 0;
-            LEDon <= 1;
             counter <= counter + 1;
             state <= s_count;
           end
@@ -38,5 +34,4 @@ module One_mSecondTimer(pulseClk, pulseOnemS, LED);
   end
 
   assign pulseOnemS = pulse;
-  assign LED = LEDon;
 endmodule
