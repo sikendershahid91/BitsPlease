@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed May  9 15:30:04 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : BitsPlease
+Top-level Entity Name : BitsPlease
+Family : Cyclone IV E
+Total logic elements : 533
+    Total combinational functions : 525
+    Dedicated logic registers : 188
+Total registers : 188
+Total pins : 109
+Total virtual pins : 0
+Total memory bits : 2,097,152
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

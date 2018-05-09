@@ -16,25 +16,25 @@ module ScoreBoardDisplay(
 			  DISPLAY = 2; 
 	reg [2:0] State;
 	reg [2:0] count;  
-
+	
 	reg [31:0] scoreboard[2:0]; 
 
 	// take in all the data 
 	// output three valued bit 
 	always @ (parity_toggle) begin
-		if(data[15:0] > scoreboard[0][15:0]) begin
-			scoreboard[2] = scoreboard[1]; 
-			scoreboard[1] = scoreboard[0];
-			scoreboard[0] = data; 
-		end else if(data[15:0] > scoreboard[1][15:0]) begin
-			scoreboard[2] = scoreboard[1]; 
-			scoreboard[1] = data; 
-		end else if(data[15:0] > scoreboard[2][15:0]) begin
-			scoreboard[2] = data; 
-		end
-		else begin
-			// do nothing with it since its small 
-		end
+//		if(data[15:0] > scoreboard[0][15:0]) begin
+////			scoreboard[2] = scoreboard[1]; 
+////			scoreboard[1] = scoreboard[0];
+//			scoreboard[0][31:0] = data[31:0]; 
+//		end else if(data[15:0] > scoreboard[1][15:0]) begin
+////			scoreboard[2] = scoreboard[1]; 
+//			scoreboard[1][31:0] = data[31:0]; 
+//		end else if(data[15:0] > scoreboard[2][15:0]) begin
+//			scoreboard[2][31:0] = data[31:0]; 
+//		end
+//		else begin
+//			// do nothing with it since its small 
+//		end
 	end  
 
 	always @ (posedge clk) begin
@@ -45,10 +45,10 @@ module ScoreBoardDisplay(
 				INIT: begin
 					count <= 0; 
 					scoreboard_eof <= 0;
-					scoreboard[0] <= 31'd0; 
-					scoreboard[1] <= 31'd0;
-					scoreboard[2] <= 31'd0;
-					State <= STORE;  
+					scoreboard[0][31:0] <= 32'd0; 
+					scoreboard[1][31:0] <= 32'd1;
+					scoreboard[2][31:0] <= 32'd3;
+					State <= DISPLAY;  
 				end
 				STORE: begin
 					if (data[15] !== 16'hFFFF) begin

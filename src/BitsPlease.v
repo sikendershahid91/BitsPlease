@@ -79,7 +79,7 @@ module BitsPlease(
 	ProcessControl process_control(
 		.clk(clk),
 		.rst(rst),  
-		.switches(Switches),
+//		.switches(Switches),
 		.buttons(button_process_control), 
 		.access_control_fb(access_grant), 
 		.game_fb(/*  */), 
@@ -134,7 +134,7 @@ module BitsPlease(
 		.score(game_score),
 		.game_state(score_select),
 		.scoreboard_eof(scoreboard_eof_wire),
-		.display_wire(score_board_scores)); 
+		.display_data(score_board_scores)); 
 
  	/* 
  

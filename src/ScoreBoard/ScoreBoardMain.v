@@ -18,7 +18,7 @@ module ScoreBoardMain(
 	wire [0:0] parity_wire;
 	wire [31:0]scoreboard_data;  
 
-	RAMScoreBoard RAM(
+	RAMScoreboard RAM(
 		.clk(clk),
 		._Address(address_wire),
 		._Data_In(data_wire),
@@ -32,7 +32,7 @@ module ScoreBoardMain(
 		.game_state(game_state),
 		.score_data(score),
 		.ram_data(ram_data_wire),
-		.scoreboard(scoreboard_data),
+		.scoreboard_output(scoreboard_data),
 		.scoreboard_parity(parity_wire),
 		.wren(wren_wire),
 		.address(address_wire),

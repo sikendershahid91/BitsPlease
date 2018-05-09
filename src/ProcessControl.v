@@ -93,6 +93,7 @@ module ProcessControl(
 				end
 				GAME: begin 
 					if(game_fb == 1) begin
+						game_score_select <=0; 
 						STATE <= TRANSITION; 
 					end
 					else begin
@@ -101,6 +102,7 @@ module ProcessControl(
 				end
 				SCOREBOARD: begin
 					if(scoreboard_fb == 1) begin
+						game_score_select <=0; 
 						STATE <= TRANSITION; 
 					end else begin
 						STATE <= SCOREBOARD; 

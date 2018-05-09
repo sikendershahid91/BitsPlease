@@ -1,0 +1,96 @@
+
+State Machine - |BitsPlease|FPGA_2_LCD:lcd_display|NXT_CMD
+Name NXT_CMD.RETURN NXT_CMD.PRINT_STRING NXT_CMD.LINE2 NXT_CMD.MODESET NXT_CMD.DISPCLR NXT_CMD.DISPON NXT_CMD.DISPOFF NXT_CMD.FCNSET NXT_CMD.INIT3 NXT_CMD.0000 NXT_CMD.INIT2 
+NXT_CMD.INIT2 0 0 0 0 0 0 0 0 0 0 0 
+NXT_CMD.0000 0 0 0 0 0 0 0 0 0 1 1 
+NXT_CMD.INIT3 0 0 0 0 0 0 0 0 1 0 1 
+NXT_CMD.FCNSET 0 0 0 0 0 0 0 1 0 0 1 
+NXT_CMD.DISPOFF 0 0 0 0 0 0 1 0 0 0 1 
+NXT_CMD.DISPON 0 0 0 0 0 1 0 0 0 0 1 
+NXT_CMD.DISPCLR 0 0 0 0 1 0 0 0 0 0 1 
+NXT_CMD.MODESET 0 0 0 1 0 0 0 0 0 0 1 
+NXT_CMD.LINE2 0 0 1 0 0 0 0 0 0 0 1 
+NXT_CMD.PRINT_STRING 0 1 0 0 0 0 0 0 0 0 1 
+NXT_CMD.RETURN 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |BitsPlease|FPGA_2_LCD:lcd_display|STATE
+Name STATE.RETURN STATE.PRINT_STRING STATE.LINE2 STATE.HOLD STATE.DROP_LCD_E STATE.MODESET STATE.DISPCLR STATE.DISPON STATE.DISPOFF STATE.FCNSET STATE.INIT3 STATE.INIT2 STATE.0000 
+STATE.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 
+STATE.INIT2 0 0 0 0 0 0 0 0 0 0 0 1 1 
+STATE.INIT3 0 0 0 0 0 0 0 0 0 0 1 0 1 
+STATE.FCNSET 0 0 0 0 0 0 0 0 0 1 0 0 1 
+STATE.DISPOFF 0 0 0 0 0 0 0 0 1 0 0 0 1 
+STATE.DISPON 0 0 0 0 0 0 0 1 0 0 0 0 1 
+STATE.DISPCLR 0 0 0 0 0 0 1 0 0 0 0 0 1 
+STATE.MODESET 0 0 0 0 0 1 0 0 0 0 0 0 1 
+STATE.DROP_LCD_E 0 0 0 0 1 0 0 0 0 0 0 0 1 
+STATE.HOLD 0 0 0 1 0 0 0 0 0 0 0 0 1 
+STATE.LINE2 0 0 1 0 0 0 0 0 0 0 0 0 1 
+STATE.PRINT_STRING 0 1 0 0 0 0 0 0 0 0 0 0 1 
+STATE.RETURN 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |BitsPlease|ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|State
+Name State.INIT State.DISPLAY State.STORE 
+State.INIT 0 0 0 
+State.STORE 1 0 1 
+State.DISPLAY 1 1 0 
+
+State Machine - |BitsPlease|Game:game|GameStacker:Tetris|State
+Name State.INIT State.EOG State.PLACE State.SHIFT 
+State.INIT 0 0 0 0 
+State.SHIFT 1 0 0 1 
+State.PLACE 1 0 1 0 
+State.EOG 1 1 0 0 
+
+State Machine - |BitsPlease|Game:game|reconfigTmr8B:rTmrOneSec|state
+Name state.s_init state.s_pulseHigh state.s_count 
+state.s_init 0 0 0 
+state.s_count 1 0 1 
+state.s_pulseHigh 1 1 0 
+
+State Machine - |BitsPlease|Game:game|reconfigTmr8B:rTmrfifthSec|state
+Name state.s_init state.s_pulseHigh state.s_count 
+state.s_init 0 0 0 
+state.s_count 1 0 1 
+state.s_pulseHigh 1 1 0 
+
+State Machine - |BitsPlease|AccessControl:access_control|AccessControlFsm:FSM|Invalid_Input_Flag
+Name Invalid_Input_Flag.1 
+Invalid_Input_Flag.0 0 
+Invalid_Input_Flag.1 1 
+
+State Machine - |BitsPlease|AccessControl:access_control|AccessControlFsm:FSM|State
+Name State.CHANGE State.ACCESS State.CHECK State.LOADPASSWORD State.DELAY0 State.GETPASSWORD State.INIT 
+State.INIT 0 0 0 0 0 0 0 
+State.GETPASSWORD 0 0 0 0 0 1 1 
+State.DELAY0 0 0 0 0 1 0 1 
+State.LOADPASSWORD 0 0 0 1 0 0 1 
+State.CHECK 0 0 1 0 0 0 1 
+State.ACCESS 0 1 0 0 0 0 1 
+State.CHANGE 1 0 0 0 0 0 1 
+
+State Machine - |BitsPlease|ProcessControl:process_control|STATE
+Name STATE.GAME STATE.TRANSITION STATE.ACCESSCONTROL STATE.INIT STATE.SCOREBOARD 
+STATE.INIT 0 0 0 0 0 
+STATE.ACCESSCONTROL 0 0 1 1 0 
+STATE.TRANSITION 0 1 0 1 0 
+STATE.GAME 1 0 0 1 0 
+STATE.SCOREBOARD 0 0 0 1 1 
+
+State Machine - |BitsPlease|ButtonShaper:b3|State
+Name State.OFF_STATE State.DELAY_STATE State.ON_STATE 
+State.OFF_STATE 0 0 0 
+State.ON_STATE 1 0 1 
+State.DELAY_STATE 1 1 0 
+
+State Machine - |BitsPlease|ButtonShaper:b2|State
+Name State.OFF_STATE State.DELAY_STATE State.ON_STATE 
+State.OFF_STATE 0 0 0 
+State.ON_STATE 1 0 1 
+State.DELAY_STATE 1 1 0 
+
+State Machine - |BitsPlease|ButtonShaper:b1|State
+Name State.OFF_STATE State.DELAY_STATE State.ON_STATE 
+State.OFF_STATE 0 0 0 
+State.ON_STATE 1 0 1 
+State.DELAY_STATE 1 1 0 

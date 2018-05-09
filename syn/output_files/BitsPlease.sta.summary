@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk[0]'
+Slack : -7.019
+TNS   : -2664.353
+
+Type  : Slow 1200mV 85C Model Setup 'ProcessControl:process_control|game_score_select[0]'
+Slack : -2.752
+TNS   : -45.327
+
+Type  : Slow 1200mV 85C Model Hold 'clk[0]'
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.818
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk[0]'
+Slack : -3.000
+TNS   : -1968.100
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.460
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk[0]'
+Slack : -6.253
+TNS   : -2353.707
+
+Type  : Slow 1200mV 0C Model Setup 'ProcessControl:process_control|game_score_select[0]'
+Slack : -2.449
+TNS   : -40.339
+
+Type  : Slow 1200mV 0C Model Hold 'clk[0]'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.770
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk[0]'
+Slack : -3.000
+TNS   : -1939.940
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk[0]'
+Slack : -3.102
+TNS   : -920.750
+
+Type  : Fast 1200mV 0C Model Setup 'ProcessControl:process_control|game_score_select[0]'
+Slack : -1.395
+TNS   : -21.345
+
+Type  : Fast 1200mV 0C Model Hold 'clk[0]'
+Slack : 0.120
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.265
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk[0]'
+Slack : -3.000
+TNS   : -923.120
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ProcessControl:process_control|game_score_select[0]'
+Slack : 0.421
+TNS   : 0.000
+
+------------------------------------------------------------

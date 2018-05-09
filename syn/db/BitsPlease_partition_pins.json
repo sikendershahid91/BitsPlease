@@ -1,0 +1,309 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[0]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[1]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[2]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[3]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[4]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[5]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[6]",
+					"strict" : false
+				},
+				{
+					"name" : "matrix_col[7]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_RS",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_E",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[3]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[4]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[5]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[6]",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_DB[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rst[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ToggleSwitch[15]",
+					"strict" : false
+				},
+				{
+					"name" : "PushButtons[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PushButtons[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PushButtons[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
