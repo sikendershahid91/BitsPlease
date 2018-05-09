@@ -72,7 +72,7 @@ module GameStacker(
 				end
 				PLACE: begin
 
-					if(game_table[lineIndex+1] == game_table[lineIndex] || lineIndex == 7) begin
+					if((game_table[lineIndex+1] == game_table[lineIndex] || lineIndex == 7) && lineIndex != 0) begin
 						lineIndex <= lineIndex -1;
 						game_score <= game_score + 1 + (7 - lineIndex);  
 						State <= SHIFT; 
