@@ -117,7 +117,9 @@ module BitsPlease(
 		.userid(userid_const),
 		.gamestate(score_select), 
 		.game_eog(game_eog_wire),
-		.game_display(game_stream_wire),
+		//.game_display(game_stream_wire),
+		.rowOut(matrix_row),
+		.colOut(matrix_col),
 		.game_data(game_score));
 
 
@@ -158,7 +160,7 @@ module BitsPlease(
  	LEDMatrixControllerTop matrix(
  		.clk(clk),
  		.rst(rst), 
- 		.matrixIn(),  //input stream from game
+ 		.matrixIn(game_stream_wire),  //input stream from game
  		.rowOut(matrix_row),
         .colOut(matrix_col)); 
 

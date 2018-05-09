@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BitsPlease
-Wed May  9 15:30:04 2018
+Wed May  9 15:53:12 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -52,20 +52,19 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  44. Parameter Settings for User Entity Instance: LEDMatrixControllerTop:matrix|LEDMatrixController:LEDMatrixController_1
  45. altsyncram Parameter Settings by Entity Instance
  46. Port Connectivity Checks: "LEDMatrixControllerTop:matrix|secondTimer:secondTimer_1"
- 47. Port Connectivity Checks: "LEDMatrixControllerTop:matrix"
- 48. Port Connectivity Checks: "ScoreBoardMain:score_board"
- 49. Port Connectivity Checks: "Game:game|reconfigTmr8B:rTmrOneSec"
- 50. Port Connectivity Checks: "Game:game|reconfigTmr8B:rTmrfifthSec"
- 51. Port Connectivity Checks: "Game:game|One_mSecondTimer:one_ms"
- 52. Port Connectivity Checks: "Game:game"
- 53. Port Connectivity Checks: "AccessControl:access_control"
- 54. Port Connectivity Checks: "ProcessControl:process_control"
- 55. Port Connectivity Checks: "SwitchesControl:sw"
- 56. Port Connectivity Checks: "ButtonDecoder:button_decoder"
- 57. Post-Synthesis Netlist Statistics for Top Partition
- 58. Elapsed Time Per Partition
- 59. Analysis & Synthesis Messages
- 60. Analysis & Synthesis Suppressed Messages
+ 47. Port Connectivity Checks: "ScoreBoardMain:score_board"
+ 48. Port Connectivity Checks: "Game:game|reconfigTmr8B:rTmrOneSec"
+ 49. Port Connectivity Checks: "Game:game|reconfigTmr8B:rTmrfifthSec"
+ 50. Port Connectivity Checks: "Game:game|One_mSecondTimer:one_ms"
+ 51. Port Connectivity Checks: "Game:game"
+ 52. Port Connectivity Checks: "AccessControl:access_control"
+ 53. Port Connectivity Checks: "ProcessControl:process_control"
+ 54. Port Connectivity Checks: "SwitchesControl:sw"
+ 55. Port Connectivity Checks: "ButtonDecoder:button_decoder"
+ 56. Post-Synthesis Netlist Statistics for Top Partition
+ 57. Elapsed Time Per Partition
+ 58. Analysis & Synthesis Messages
+ 59. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -91,7 +90,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May  9 15:30:04 2018       ;
+; Analysis & Synthesis Status        ; Successful - Wed May  9 15:53:12 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; BitsPlease                                  ;
 ; Top-level Entity Name              ; BitsPlease                                  ;
@@ -790,210 +789,210 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                                    ;
-+------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
-; Register name                                                                            ; Reason for Removal        ; Registers Removed due to This Register                                                  ;
-+------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
-; Game:game|LFSRTimer_005_ms:short005ms|pulse                                              ; Stuck at GND              ; Game:game|One_mSecondTimer:one_ms|counter[0],                                           ;
-;                                                                                          ; due to stuck port data_in ; Game:game|One_mSecondTimer:one_ms|counter[1],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[2],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[3],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[4],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[5],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[6],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|counter[7],                                           ;
-;                                                                                          ;                           ; Game:game|One_mSecondTimer:one_ms|state, Game:game|One_mSecondTimer:one_ms|pulse,       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[3],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[2],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[1],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[0],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[4],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[5],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[6],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[7],                                     ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|pulse,                                             ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[3],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[2],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[1],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[0],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[4],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[5],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[6],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[7],                                       ;
-;                                                                                          ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|pulse,                                               ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[11],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[10],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[9],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[8],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[7],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[6],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[5],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[4],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[3],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[2],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[1],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[0],                                             ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[12],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[13],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[14],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_score[15],                                            ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|direction, Game:game|GameStacker:Tetris|lineIndex[0],      ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|lineIndex[1],                                              ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|lineIndex[2],                                              ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[0][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[1][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[2][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[3][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[4][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[5][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[6][7],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][0],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][1],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][2],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][3],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][4],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][5],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][6],                                          ;
-;                                                                                          ;                           ; Game:game|GameStacker:Tetris|game_table[7][7],                                          ;
-;                                                                                          ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|game_state_reg[0],                     ;
-;                                                                                          ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|game_state_reg[1],                     ;
-;                                                                                          ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|STATE[0]                               ;
-; AccessControl:access_control|AccessControlFsm:FSM|State.CHANGE                           ; Stuck at GND              ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[0],                          ;
-;                                                                                          ; due to stuck port data_in ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[1],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[2],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[3],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[4],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[5],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[6],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[7],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[8],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[9],                          ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[10],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[11],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[12],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[13],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[14],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[15],                         ;
-;                                                                                          ;                           ; AccessControl:access_control|AccessControlFsm:FSM|wren[0]                               ;
-; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_count                                       ; Stuck at GND              ; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_init,                                      ;
-;                                                                                          ; due to stuck port clock   ; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_pulseHigh                                  ;
-; Game:game|reconfigTmr8B:rTmrOneSec|state.s_count                                         ; Stuck at GND              ; Game:game|reconfigTmr8B:rTmrOneSec|state.s_init,                                        ;
-;                                                                                          ; due to stuck port clock   ; Game:game|reconfigTmr8B:rTmrOneSec|state.s_pulseHigh                                    ;
-; Game:game|GameStacker:Tetris|State.PLACE                                                 ; Stuck at GND              ; Game:game|GameStacker:Tetris|State.EOG, Game:game|GameStacker:Tetris|State.INIT         ;
-;                                                                                          ; due to stuck port clock   ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][20]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[20] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][19]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[19] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][21]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[21] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][22]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[22] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][23]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[23] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][24]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[24] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][25]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[25] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][26]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[26] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][27]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[27] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][28]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[28] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][29]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[29] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][30]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[30] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][31]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[31] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; LEDMatrixControllerTop:matrix|LEDMatrixController:LEDMatrixController_1|savedMatrixIn[0] ; Stuck at GND              ; LEDMatrixControllerTop:matrix|LEDMatrixController:LEDMatrixController_1|rowOut[0]       ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][10]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[10] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][2]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[2]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][3]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[3]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][4]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[4]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][5]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[5]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][6]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[6]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][7]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[7]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][8]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[8]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][9]         ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[9]  ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][18]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[18] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][11]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[11] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][12]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[12] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][13]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[13] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][14]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[14] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][15]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[15] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][16]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[16] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][17]        ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[17] ;
-;                                                                                          ; due to stuck port data_in ;                                                                                         ;
-+------------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                               ;
++-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------------+
+; Register name                                                                     ; Reason for Removal        ; Registers Removed due to This Register                                                    ;
++-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------------+
+; Game:game|LFSRTimer_005_ms:short005ms|pulse                                       ; Stuck at GND              ; Game:game|One_mSecondTimer:one_ms|counter[0],                                             ;
+;                                                                                   ; due to stuck port data_in ; Game:game|One_mSecondTimer:one_ms|counter[1],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[2],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[3],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[4],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[5],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[6],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|counter[7],                                             ;
+;                                                                                   ;                           ; Game:game|One_mSecondTimer:one_ms|state, Game:game|One_mSecondTimer:one_ms|pulse,         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[3],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[2],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[1],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[0],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[4],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[5],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[6],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|adjCounter[7],                                       ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrfifthSec|pulse,                                               ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[3],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[2],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[1],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[0],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[4],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[5],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[6],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|adjCounter[7],                                         ;
+;                                                                                   ;                           ; Game:game|reconfigTmr8B:rTmrOneSec|pulse,                                                 ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[11],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[10],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[9],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[8],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[7],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[6],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[5],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[4],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[3],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[2],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[1],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[0],                                               ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[12],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[13],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[14],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_score[15],                                              ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|direction, Game:game|GameStacker:Tetris|lineIndex[0],        ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|lineIndex[1],                                                ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|lineIndex[2],                                                ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[0][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[1][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[2][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[3][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[4][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[5][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[6][7],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][0],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][1],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][2],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][3],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][4],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][5],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][6],                                            ;
+;                                                                                   ;                           ; Game:game|GameStacker:Tetris|game_table[7][7],                                            ;
+;                                                                                   ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|game_state_reg[0],                       ;
+;                                                                                   ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|game_state_reg[1],                       ;
+;                                                                                   ;                           ; ScoreBoardMain:score_board|ScoreBoard:scoreboard|STATE[0],                                ;
+;                                                                                   ;                           ; LEDMatrixControllerTop:matrix|LEDMatrixController:LEDMatrixController_1|savedMatrixIn[0], ;
+;                                                                                   ;                           ; LEDMatrixControllerTop:matrix|LEDMatrixController:LEDMatrixController_1|rowOut[0]         ;
+; AccessControl:access_control|AccessControlFsm:FSM|State.CHANGE                    ; Stuck at GND              ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[0],                            ;
+;                                                                                   ; due to stuck port data_in ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[1],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[2],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[3],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[4],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[5],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[6],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[7],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[8],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[9],                            ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[10],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[11],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[12],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[13],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[14],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|Data_Out[15],                           ;
+;                                                                                   ;                           ; AccessControl:access_control|AccessControlFsm:FSM|wren[0]                                 ;
+; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_count                                ; Stuck at GND              ; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_init,                                        ;
+;                                                                                   ; due to stuck port clock   ; Game:game|reconfigTmr8B:rTmrfifthSec|state.s_pulseHigh                                    ;
+; Game:game|reconfigTmr8B:rTmrOneSec|state.s_count                                  ; Stuck at GND              ; Game:game|reconfigTmr8B:rTmrOneSec|state.s_init,                                          ;
+;                                                                                   ; due to stuck port clock   ; Game:game|reconfigTmr8B:rTmrOneSec|state.s_pulseHigh                                      ;
+; Game:game|GameStacker:Tetris|State.PLACE                                          ; Stuck at GND              ; Game:game|GameStacker:Tetris|State.EOG, Game:game|GameStacker:Tetris|State.INIT           ;
+;                                                                                   ; due to stuck port clock   ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][20] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[20]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][18] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[18]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][21] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[21]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][22] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[22]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][23] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[23]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][24] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[24]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][25] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[25]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][26] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[26]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][27] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[27]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][28] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[28]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][29] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[29]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][30] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[30]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][31] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[31]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][10] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[10]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][2]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[2]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][3]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[3]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][4]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[4]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][5]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[5]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][6]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[6]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][7]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[7]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][8]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[8]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][9]  ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[9]    ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][19] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[19]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][11] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[11]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][12] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[12]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][13] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[13]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][14] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[14]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][15] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[15]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][16] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[16]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
+; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|scoreboard[0][17] ; Stuck at GND              ; ScoreBoardMain:score_board|ScoreBoardDisplay:scoreboard_display|userid_score_output[17]   ;
+;                                                                                   ; due to stuck port data_in ;                                                                                           ;
++-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1485,15 +1484,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------+
-; Port Connectivity Checks: "LEDMatrixControllerTop:matrix" ;
-+----------+-------+----------+-----------------------------+
-; Port     ; Type  ; Severity ; Details                     ;
-+----------+-------+----------+-----------------------------+
-; matrixIn ; Input ; Info     ; Explicitly unconnected      ;
-+----------+-------+----------+-----------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ScoreBoardMain:score_board"                                                                                                                                                         ;
 +-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1538,14 +1528,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Game:game"                                                                                  ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; game_eog     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; game_display ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Game:game"                                                                              ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; game_eog ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------+
@@ -1631,7 +1620,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed May  9 15:29:00 2018
+    Info: Processing started: Wed May  9 15:52:10 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BitsPlease -c BitsPlease
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -2110,10 +2099,10 @@ Info (21057): Implemented 916 device resources after synthesis - the final resou
     Info (21061): Implemented 551 logic cells
     Info (21064): Implemented 256 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 276 warnings
-    Info: Peak virtual memory: 1043 megabytes
-    Info: Processing ended: Wed May  9 15:30:04 2018
-    Info: Elapsed time: 00:01:04
-    Info: Total CPU time (on all processors): 00:02:03
+    Info: Peak virtual memory: 1042 megabytes
+    Info: Processing ended: Wed May  9 15:53:12 2018
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:02:02
 
 
 +------------------------------------------+

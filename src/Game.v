@@ -6,7 +6,7 @@ module Game(
 	input [1:0] gamestate,
 	output [0:0] game_eog,
 	//output reg [7:0] timer_reconfig_fb,
-	output [63:0] game_display,
+	output [7:0] rowOut, colOut,
 	output [31:0] game_data
 	);
 	
@@ -14,13 +14,16 @@ module Game(
 	wire oneSecPulse;
 	wire pulseOnems;
 	wire pulseFifthS;
-	
+	wire [63:0] game_display;
+
+
 	LFSRTimer_005_ms short005ms(clk, rstBtn, pulseOut);
 	One_mSecondTimer one_ms(pulseOut, pulseOnems, rLED);
 
 	reconfigTmr8B rTmrfifthSec(pulseOnems, 200, pulseFifthS);
 	reconfigTmr8B rTmrOneSec(pulseFifthS, 5 , oneSecPulse);
 	
+
 	GameStacker Tetris(
 		oneSecPulse, // timer
 		rst,
@@ -31,4 +34,10 @@ module Game(
 		//output reg [7:0] timer_reconfig_fb,
 		game_display,
 		game_data);
+
+	LEDMatrixController led_matrix(
+		game_display, oneSecPulse, rowOut, colOut,clk,rst); 
+//matrixIn, timePulseIn, rowOut, colOut, clk, rst);
+
+
 endmodule
