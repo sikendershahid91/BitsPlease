@@ -157,12 +157,12 @@ module BitsPlease(
  	    .LCD_ON(lcd_ON));
  
 
- 	LEDMatrixControllerTop matrix(
- 		.clk(clk),
- 		.rst(rst), 
- 		.matrixIn(game_stream_wire),  //input stream from game
- 		.rowOut(matrix_row),
-        .colOut(matrix_col)); 
+ 	// LEDMatrixControllerTop matrix(
+ 	// 	.clk(clk),
+ 	// 	.rst(rst), 
+ 	// 	.matrixIn(game_stream_wire),  //input stream from game
+ 	// 	.rowOut(matrix_row),
+  //       .colOut(matrix_col)); 
 
 	wire [31:0] display_wire;
 	DisplayScoreMux mux(
