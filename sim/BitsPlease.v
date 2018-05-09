@@ -109,10 +109,6 @@ module BitsPlease(
 	game modules : "tetris"
 
 	*/
-
-
-	//timer top 
-
 	 
 	Game game(
 		.clk(clk),
